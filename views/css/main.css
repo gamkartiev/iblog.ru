@@ -1,0 +1,93 @@
+body{
+	margin: 0; padding: 0;
+	background: url(../images/fon1.jpg) #fff top center no-repeat;
+	font-size: 100%;
+}
+h3{
+	font-size: 1em;
+	font-family: 'Times New Roman';
+}
+.wrapper{
+	/*background: rgba(105,240,200,0.5);*/		/**/
+	width: 650px;
+	min-height: 400px;
+	margin: 60px auto;
+
+}
+.content{
+	margin: 5px;
+	padding: 5px 5px 25px 5px;
+	background: rgba(152,152,251,0.7);
+	min-width: 40px;
+	min-height: 40px;
+}
+.article img{
+	max-width: 200px;
+	max-height: 200px;
+	display: block;
+}
+.article{
+	max-height: 500px;
+	font-size: 1em;
+	padding: 7px;
+	margin: 7px;
+	overflow: hidden;
+
+}
+	.article_full{
+	padding: 7px;
+	margin: 7px;
+	font-size: 1em;
+}
+	.article_full h2{
+		font-size: 2em;
+	}
+	.article_full img{
+		float: right;
+		margin: 5px 10px 10px 10px;
+	}
+	/*.article_full p{
+		float: right;
+	}*/
+.header{
+	width: 100%;
+	background: rgba(250,250,250,0.7);
+	font-size: 1em;
+	overflow: hidden;	
+}
+.block{
+	margin: 2px;
+	padding: 10px;
+}
+.block_main{
+	width: 33%;
+	float: left;
+}
+
+input{
+	margin: 2px;
+	padding: 1px;
+}
+
+form[name="vhod"] {
+	margin: 2px 5px 5px 100px;
+	float: left;
+}
+
+#menu ul{
+	list-style: none;
+}
+
+#menu ul li{
+	margin: 2px;
+}
+#menu ul li a{
+	text-decoration: none;
+	padding: 5px;
+	background: rgba(102,255,102,0.8);
+	display: block;
+}
+#menu ul li a:hover{
+	background: rgb(255,102,255);
+	color: #fff;
+}

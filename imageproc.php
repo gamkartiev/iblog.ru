@@ -1,7 +1,7 @@
 <?php
 //header('Content-type: text/html; charset=utf-8');
 error_reporting(E_ALL);
-//Можно сделать отдельную функкцию обработки изображения
+//Можно сделать отдельную функцию обработки изображения
 /**
  * Загрузка картинки из формы
  * @see http://denisyuk.by/all/polnoe-rukovodstvo-po-zagruzke-izobrazheniy-na-php/

@@ -65,6 +65,7 @@
         $title = trim($title);
         $content = trim($content);
         $data = trim($data);
+        $image = trim($image);
         $id = (int)$id;
         
         // Проверка

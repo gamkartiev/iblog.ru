@@ -3,12 +3,14 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <title>Мой первый блог</title>
-        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" type="text/css" href="/views/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
    </head>
     <body>
         <div class="container">
-            <h1>Мой первый блог</h1>
+            <h1> Мой первый блог </h1>
+            <p> <a href="/index.php"> Главная            </a></p>
+            <p> <a href="index.php?do=logout">Выход     </a></p> <!-- Выход из учетной записи администратора -->
             <h3>Панель администратора</h3>
             <div>
                 <a href="index.php?action=add">Добавить статью</a>
@@ -33,9 +35,7 @@
                     <?php endforeach ?>
                 </table>            
             </div>
-            <div class="footer">
-                <p>Мой первый блог<br>Copyright &copy; 2016</p>
-            </div>
+
         </div>
     </body>
 </html>

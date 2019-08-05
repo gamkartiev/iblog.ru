@@ -30,7 +30,8 @@
                         <textarea name="content" class="form-control" required><?=$article['content']?></textarea>
                     </label>
                     <label>
-                        <input type="file" name="upload">
+                        <input type="file" name="upload" value="<?=$article['image']?>">
+                        <input type="hidden" name="image" value="<?=$article['image']?>">
                     </label> <br/>
                     </div>
                     <input type="submit" value="Сохранить" class="btn">
