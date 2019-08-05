@@ -108,4 +108,6 @@
     function article_intro($text, $len = 500){
         return mb_substr($text, 0, $len);
     }
+
+    function image_processing() {} // Нужно залить работу с изображениями сюда, в отдельную функцию
 ?>
