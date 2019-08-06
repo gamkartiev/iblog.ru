@@ -18,8 +18,8 @@
  <section>
     <article>
      <h3><?=$article['title'] ?></h3>
-     <em>Опубликовоно: <?=$article['data']?></em>
      <p><?=$article['content']?></p>
+     <em>Опубликовоно: <?=$article['data']?></em>
     </article>
  </section>            
 </main>      

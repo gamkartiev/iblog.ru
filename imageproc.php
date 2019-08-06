@@ -1,15 +1,7 @@
 <?php
-//header('Content-type: text/html; charset=utf-8');
-error_reporting(E_ALL);
-//Можно сделать отдельную функцию обработки изображения
-/**
- * Загрузка картинки из формы
- * @see http://denisyuk.by/all/polnoe-rukovodstvo-po-zagruzke-izobrazheniy-na-php/
- */
 // Перезапишем переменные для удобства
 $filePath  = $_FILES['upload']['tmp_name'];
 $errorCode = $_FILES['upload']['error'];
-
 // Проверим на ошибки
 //if ($errorCode !== UPLOAD_ERR_OK || !is_uploaded_file($filePath)) {
     // Массив с названиями ошибок
@@ -53,7 +45,7 @@ $name = md5_file($filePath);
 $extension = image_type_to_extension($image[2]);
 // Сократим .jpeg до .jpg
 $format = str_replace('jpeg', 'jpg', $extension);
-// Переместим картинку с новым именем и расширением в папку /pics
+// Переместим картинку с новым именем и расширением в папку /files
 if (!move_uploaded_file($filePath, __DIR__ . '/files/' . $name.$format)) {
     die('При записи изображения на диск произошла ошибка.');
 };
