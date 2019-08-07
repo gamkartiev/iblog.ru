@@ -57,15 +57,19 @@ article{
 	padding: 1%;
 	margin-top: 1%;
 	width: 90%;
-
 }
 article:hover{
 	background: rgba(255,255,255, 0.4);
 }
 
-article img{
+.articles_img{
 /*  	width: 30%;*/
  	max-height: 200px;
+}
+
+.article_img{
+	max-width: 100%;
+	height: 100%;
 }
 
 

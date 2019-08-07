@@ -21,9 +21,9 @@
     <?php foreach($articles as $a): ?>  <!--Это код для вывода всех статей по одному -->
     <article>   <!--Это отдельняя статья -->
       <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3>
-      <p><?=article_intro($a['content'])?></p>
-      <img src="../files/<?=$a['image']?>" alt="">
       <em>Опубликовоно: <?=$a['data']?></em>
+      <p><?=article_intro($a['content'])?></p>
+      <img class="articles_img" src="../files/<?=$a['image']?>" alt="">
     </article>
     <?php endforeach ?>
   </section>
@@ -31,7 +31,7 @@
 
 
 <footer>
-   <p>Блог Ibragim Gamkartiev <br>Copyright &copy; 2019</p>
+   <p>Блог G|I <br>Copyright &copy; 2019</p>
 </footer>
 
 

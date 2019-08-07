@@ -18,14 +18,15 @@
  <section>
     <article>
      <h3><?=$article['title'] ?></h3>
-     <p><?=$article['content']?></p>
      <em>Опубликовоно: <?=$article['data']?></em>
+     <p><?=$article['content']?></p>
+     <img class="article_img" src="../files/<?=$article['image']?>" alt="">
     </article>
  </section>            
 </main>      
 
 
-<footer> <p>Блог Ibragim Gamkartiev <br>Copyright &copy; 2019</p> </footer>
+<footer> <p>Блог G|I <br>Copyright &copy; 2019</p> </footer>
                 
 </body>
 </html>
