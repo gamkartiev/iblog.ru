@@ -52,7 +52,7 @@ if(!empty($_FILES['upload']['tmp_name'])) {
         header("Location: index.php");
     }
     else{
-        $articles = article_all($link);             // Иначе вывести все статьи списком(вызов соответствующей функции)
+        $articles = article_all($link, $page);             // Иначе вывести все статьи списком(вызов соответствующей функции)
         include("../views/articles_admin.php");
     }
     

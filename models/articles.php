@@ -1,16 +1,17 @@
 <?php
     header("Content-Type: text/html; charset=utf-8");
-    function article_all($link){
-        // Переменная хранит число сообщений выводимых на станице 
-        $num = 5; 
-        // Извлекаем из URL текущую страницу 
-        $page = $_GET['page']; 
-        // Определяем общее число сообщений в базе данных 
+    function article_all($link, $page){
+        
+        $num = 5;               // Переменная хранит число сообщений выводимых на станице  
+        $page = $_GET['page'];  // Извлекаем из URL текущую страницу 
+         
+        // Определяем общее число сообщений в базе данных
         $query = "SELECT COUNT(*) FROM articles";
-        $result = mysqli_query($link, $query); 
-        $posts = mysqli_fetch_row($result); 
+        $all_posts = mysqli_query($link, $query); 
+        // $all_posts = mysqli_fetch_row($result); 
+
         // Находим общее число страниц 
-        $total = (($posts - 1) / $num) + 1; 
+        $total = ceil($all_posts/$num); 
         // Определяем начало сообщений для текущей страницы 
         $page = intval($page); 
         // Если значение $page меньше единицы или отрицательно 
@@ -18,31 +19,32 @@
         // А если слишком большое, то переходим на последнюю 
         if(empty($page) or $page < 0) $page = 1; 
           if($page > $total) $page = $total; 
-        // Вычисляем начиная к какого номера 
+        // Вычисляем начиная c какого номера 
         // следует выводить сообщения 
         $start = $page * $num - $num; 
         // Выбираем $num сообщений начиная с номера $start 
-        $query = "SELECT * FROM articles LIMIT $start, $num ORDER BY id DESC";
-        $result = mysqli_query($link, $query); 
+        
+        $query = "SELECT * FROM articles LIMIT $start, $num"; 
+        $result = mysqli_query($link, $query);
         // В цикле переносим результаты запроса в массив $postrow 
-        while ( $articles[] = mysqli_fetch_array($result)) 
+        // while ( $articles[] = mysqli_fetch_array($result)) 
 
 
         // // Запрос
         // $query = "SELECT * FROM `articles` ORDER BY id DESC";
         // $result = mysqli_query($link, $query);
         
-        // if (!$result)
-        //     die(mysqli_error($link));
+        if (!$result)
+             die(mysqli_error($link));
         
         // // Извлечение из БД
-        // $n = mysqli_num_rows($result);
-        // $articles = array();
+        $n = mysqli_num_rows($result);
+        $articles = array();
         
-        // for ($i = 0; $i < $n; $i++){
-        //     $row = mysqli_fetch_assoc($result);
-        //     $articles[] =$row;
-        // }
+        for ($i = 0; $i < $n; $i++){
+            $row = mysqli_fetch_assoc($result);
+            $articles[] =$row;
+        }
         
         return $articles;
     }

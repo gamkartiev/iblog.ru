@@ -5,7 +5,7 @@
     require_once("models/articles.php");
 
     $link = db_connect();
-    $articles = article_all($link);
+    $articles = article_all($link, $page);
 
     include("views/articles.php")
 ?>
