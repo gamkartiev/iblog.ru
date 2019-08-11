@@ -29,7 +29,15 @@
     <?php endforeach ?>
   </section>
 
+
 <?php 
+for ($i = 1; $i <= $total; $i++){
+  echo "<a href=index.php?page=".$i."> Страница ".$i." </a>";
+}
+ ?>
+
+
+<!-- <?php 
 // Проверяем нужны ли стрелки назад 
 if ($page != 1) $pervpage = '<a href= ./page?page=1><<</a> 
                                <a href= ./page?page='. ($page - 1) .'><</a> '; 
@@ -46,7 +54,7 @@ if($page + 1 <= $total) $page1right = ' | <a href= ./page?page='. ($page + 1) .'
 // Вывод меню 
 echo $pervpage.$page2left.$page1left.'<b>'.$page.'</b>'.$page1right.$page2right.$nextpage; 
 
-?>
+?> -->
 </main>
 
 
