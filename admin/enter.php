@@ -32,8 +32,8 @@ if($_POST['submit']){
 <p><a class="submit1" href="/index.php"> На главную </a></p>
 
   <form class="open_admin" method="post">
-	Логин: <input type="text" name="user" /><br />
-	Пароль: <input type="password" name="pass" /><br />
+	<input type="text" name="user" placeholder="Логин" /><br />
+	<input type="password" name="pass" placeholder="Пароль" /><br />
 	<input type="submit" class="" name="submit" value="Войти">
   </form>
 </div>
