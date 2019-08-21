@@ -8,4 +8,6 @@
     $articles = article_all($link);
 
     include("views/articles.php")
+
+    
 ?>

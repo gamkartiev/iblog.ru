@@ -12,7 +12,16 @@
 
 
 <header>
-  <?php include "header.php" ?>
+  <nav>
+    <ul>
+      <li><a href="/index.php"> Рецензии   </a></li>
+      <li><a href="#"> Избранное  </a></li>
+      <li><a href="#"> Цитаты     </a></li>
+      <li><a href="#"> Стихи      </a></li>
+      <li><a href="#"> Списки     </a></li>
+      <li><a href="#"> Ресурсы    </a></li>
+    </ul>
+  </nav>
 </header>
   
 
@@ -20,10 +29,12 @@
   <section>   <!--Это секция со статьями -->
     <?php foreach($articles as $a): ?>  <!--Это код для вывода всех статей по одному -->
     <article>   <!--Это отдельняя статья -->
-      <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3>
-      <em>Опубликовоно: <?=$a['data']?></em>
-      <p><?=article_intro($a['content'])?></p>
-      <img class="articles_img" src="../files/<?=$a['image']?>" alt="">
+      <img class="article_img" src="../files/<?=$a['image']?>" alt="">
+      <div class="article--cont">
+      <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3> 
+      <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
+      <p><?=article_intro($a['content'])?></p> 
+      </div>
     </article>
     <?php endforeach ?>
   </section>
@@ -34,6 +45,7 @@
    <p>Блог G|I <br>Copyright &copy; 2019</p>
 </footer>
 
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 
 
 </body>
 </html>
