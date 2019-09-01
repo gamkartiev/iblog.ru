@@ -38,6 +38,7 @@
     </article>
     <?php endforeach ?>
   </section>
+  <aside>lorum ipsum...</aside>
 </main>
 
 
