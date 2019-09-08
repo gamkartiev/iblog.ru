@@ -1,8 +1,8 @@
   <nav>
     <ul>
-      <li><a href="admin">Панель администратора </a></li>
-      <li><a href="#"> Полезные ссылки          </a></li>
-      <li><a href="/index.php"> Главная          </a></li>
+      <li><a href="/index.php"> Главное   </a></li>
+      <li><a href="/views/favorites.php"> Избранное  </a></li>
+      <li><a href="/views/resourses.php"> Ресурсы    </a></li>
     </ul>
   </nav>
   <!--<h1>Мой первый блог</h1> -->

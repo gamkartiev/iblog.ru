@@ -3,7 +3,7 @@ html{
 }
 body{
 	padding: 0; margin: 0;
-	background: #fff no-repeat top center fixed;
+	background: #eef3fb no-repeat top center fixed;
 	font-size: 14px;
 	display: flex;
 	flex-direction: column;
@@ -16,15 +16,17 @@ a{
 
 /* --- Хедер ---*/
 header{
-	margin: 0 auto;
-	width: 980px;
-	overflow: hidden;
-	flex: 1 0 auto;
-	background: black;
-	color: white;*/
-	box-shadow: 0px 2px 11px 3px rgba(204,204,204,0.5);
+	width: 100%;
+	/*flex: 1 0 auto;*/ /*чтобы в article.php хедер не увеличивал height*/
+	background: #ccc;
+	color: white;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 }
 
+nav	{
+	margin: 0 auto;
+	width: 980px;
+}
 nav ul{
 	margin: 10px 12px;
 	max-width: 100%;
@@ -41,10 +43,14 @@ nav ul li{
 }
 
 nav ul li a{
-	padding: 10px;
+	padding: 22px 10px;
 	font-size: 16px;
 }
 
+/*nav ul li :last-child{
+ padding-right: 0px; 
+}
+*/
 nav ul li a:hover{
 	/*background: rgba(120,120,120,0.3);*/
 	text-decoration: none;
@@ -57,31 +63,78 @@ main{
 	width: 980px;
 	min-height: 80%;
 	display: flex;
-	float: left;
-	margin: 120px auto; 
+	margin: 0px auto;
+	flex-direction: column;
 }
 
-
-section{
-	/*background: rgba(120,120,120, 0.4);*/
-
+section.quote{
 	width: 980px;
-	/*background: black;*/
+	height: 200px;
+	/*background: #ccc;*/
+	margin: 15px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+.blockquote{
+	font-size: 18px;
+	padding: 10px 20px;
+	font-family: Trattatello, fantasy, sans-serif;
 }
 
+.quote>p{
+	text-align: center;
+}
+
+.wrapper{
+	width: 980px;
+	/*background: #ccc;*/
+}
+
+section .section_article{
+	width: 700px;
+	min-height: 500px;
+/*	background: #ccc;*/
+	float: left;
+}
+
+/*----- Боковая панель -----*/
 aside{
-	width: 220px;
-	height: 400px;
-	margin: 15px 0 0 15px;
-	background: black;
-
+	width: 265px;
+	height: 432px;
+	margin: 0 0 0px 15px;
+	/*background: #ccc;*/
+	float: right;
+	box-sizing: border-box;
 }
+
+aside.last_comments{
+	margin: 15px 0 0 0;
+}
+
+.block_name{
+	padding: 5px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+	background: #ccc;
+	margin-bottom: 4px;
+}
+
+.block_body{
+	height: 400px;
+	width: 100%;
+	background: #ccc;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+
 article{
 	padding: 1%;
-	/*width: 90%;*/
-	/*min-height: 240px;*/
-	margin-top: 15px;
+	margin-bottom: 3px;
 	box-shadow: 0 0 5px 1px #bdb2b2;
+	box-shadow:
+ 	  0 1px 4px rgba(0, 0, 0, .3),
+      -5px 0 20px -23px rgba(0, 0, 0, .8),
+      5px 0 20px -23px rgba(0, 0, 0, .8);
 	display: flex;
 	flex-direction: row;
 	box-sizing: border-box;
@@ -112,8 +165,9 @@ article{
 footer{
 	flex: 0 0 auto;
 	width: 980px;
-	margin: 1% auto;
+	margin: 15px auto;
 	padding: 0 1%;
+	background: #ccc;
 }
 
 
@@ -151,3 +205,4 @@ td a{
 	height: 100%;
 	display: block;
 }
+
