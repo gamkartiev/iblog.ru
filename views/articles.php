@@ -22,10 +22,6 @@
   <div class="blockquote">
     Книга, которая хорошо написана, всегда кажется мне слишком короткой. <br>
 Джейн Остин
- <!--    Хоть и не ново, я напомню снова: <br>
-    Перед лицом и друга и врага, <br>
-    Ты - господин несказанного слова,<br>
-    А сказанного слова - ты слуга!<br> -->
   </div>
 </section>
 
@@ -37,16 +33,32 @@
       <div class="article--cont">
         <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3> 
         <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
+        <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
         <p><?=article_intro($a['content'])?></p> 
         <p><a href="article.php?id=<?=$a['id']?>">Читать далее...</a></p>
+        
       </div>
     </article>
     <?php endforeach ?>
   </section>
 
   <aside class="interesting"> 
-    <div class="block_name"> Интересное </div> 
-    <div class="block_body"> </div>
+    <div class="block_name"> Интересное </div>
+    <div class="block_body"> 
+      <?php 
+      // убрать этот кусок кода в окончательной версии
+      if(!isset($show_title)){
+        echo "У тебя пустой массив";}
+        elseif((!isset($show_title)) && is_array($show_title)){
+          echo "У тебя не массив";
+        } 
+      else{ 
+      foreach($show_title as $value): ?>
+      <h4><a href="article.php?id=<?=$a['id']?>"> <?=$value['title']?> </a></h4>
+    <?php endforeach; }?>
+
+
+    </div>
   </aside>
   <aside class="last_comments"> 
     <div class="block_name"> Последние комментарии </div>
@@ -60,7 +72,7 @@
 <footer>
    <p>Блог G|I <br>Copyright &copy; 2019</p>
 </footer>
-
+  
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 
 
 </body>

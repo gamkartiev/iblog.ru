@@ -6,6 +6,7 @@
 
     $link = db_connect();
     $articles = article_all($link);
+    $show_title = show_title($link);
 
     include("views/articles.php")
 

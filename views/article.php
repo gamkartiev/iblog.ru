@@ -13,12 +13,16 @@
     <?php include "header.php" ?>
 </header>
 
-<main>      
+
+
+<main>   
  <section>
     <article>
      <h3><?=$article['title'] ?></h3>
      <em>Опубликовоно: <?=$article['data']?></em>
      <p><?=$article['content']?></p>
+          <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
+
      <img class="article_img" src="../files/<?=$article['image']?>" alt="">
     </article>
  </section>            
@@ -27,12 +31,6 @@
 
 <footer> <p>Блог G|I <br>Copyright &copy; 2019</p> </footer>
     
-<script>
-    var arr = ["Я", "Иду", "Домой"];
-    alert(arr);
-    arr.splice (0,0,'Мы', 'Идем');
-    alert(arr);
-</script>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода -->          
 </body>
 </html>
