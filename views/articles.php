@@ -70,7 +70,16 @@
 
 
 <footer>
-   <p>Блог G|I <br>Copyright &copy; 2019</p>
+  <div class="footer_cont">
+    <p>Блог G|I <br>Copyright &copy; 2019</p>
+    <nav>
+      <ul>
+        <li> <a href="/index.php"> Главное   </a></li>
+        <li> <a href="/views/favorites.php"> Избранное  </a></li>
+        <li> <a href="/views/resourses.php"> Ресурсы    </a></li>
+      </ul>
+    </nav>
+  </div>
 </footer>
   
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 
