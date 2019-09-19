@@ -41,18 +41,19 @@
     }
 
     //Новая статья
-    function article_new($link, $title, $content, $data, $image){
+    function article_new($link, $title, $content, $data, $image) {
         // Подготовка
         $title = trim($title);
         $content = trim($content);
         $image = trim($image);
      
         // Проверка
-        if ($title == '')
+        if (!$title) {
             return false;
+        }
 
         // Запрос
-        $t=  ("INSERT INTO articles (title, content, data, image) VALUES ('%s', '%s', '%s', '%s')");     
+        $t = "INSERT INTO articles (title, content, data, image) VALUES ('%s', '%s', '%s', '%s')";     
         
         $query=sprintf($t, 
             mysqli_real_escape_string($link, $title),
@@ -62,10 +63,11 @@
         
         $qresult = mysqli_query($link, $query); 
 
-        if(!$qresult)
+        if (!$qresult) {
             die(mysqli_error($link));
+        }
 
-        return  true;
+        return true;
     }
 
     //Изменение статьи
