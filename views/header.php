@@ -1,8 +1,7 @@
-  <nav>
-    <ul>
-      <li><a href="/index.php"> Главное   </a></li>
-      <li><a href="/views/favorites.php"> Избранное  </a></li>
-      <li><a href="/views/resourses.php"> Ресурсы    </a></li>
-    </ul>
-  </nav>
-  <!--<h1>Мой первый блог</h1> -->
+<nav class="navigation">
+  <ul class="menu_top">
+    <li class="menu_list"> <a class="menu_link" href="/index.php"> Главное   </a></li>
+    <li class="menu_list"> <a class="menu_link" href="/views/favorites.php"> Избранное  </a></li>
+    <li class="menu_list"> <a class="menu_link" href="/views/resourses.php"> Ресурсы    </a></li>
+  </ul>
+</nav>

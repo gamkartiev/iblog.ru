@@ -11,8 +11,14 @@
 <body>
 
 
-<header>
-  <?php include "header.php" ?>
+<header class="header">
+  <nav class="navigation">
+    <ul class="menu_top">
+      <li class="menu_list"> <a class="menu_link" href="/index.php"> Главное   </a></li>
+      <li class="menu_list"> <a class="menu_link" href="/views/favorites.php"> Избранное  </a></li>
+      <li class="menu_list"> <a class="menu_link" href="/views/resourses.php"> Ресурсы    </a></li>
+    </ul>
+  </nav>
 </header>
   
 
@@ -70,7 +76,16 @@
 
 
 <footer>
-   <p>Блог G|I <br>Copyright &copy; 2019</p>
+  <div class="footer__container">
+    <p>Блог G|I <br>Copyright &copy; 2019</p>
+    <nav class="navigation">
+      <ul class="menu_bottom">
+        <li class="menu_list"> <a class="menu_link" href="/index.php"> Главное   </a></li>
+        <li class="menu_list"> <a class="menu_link" href="/views/favorites.php"> Избранное  </a></li>
+        <li class="menu_list"> <a class="menu_link" href="/views/resourses.php"> Ресурсы    </a></li>
+      </ul>
+    </nav>
+  </div>
 </footer>
   
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 

@@ -15,7 +15,7 @@ a{
 }
 
 /* --- Хедер ---*/
-header{
+.header{
 	width: 100%;
 	/*flex: 1 0 auto;*/ /*чтобы в article.php хедер не увеличивал height*/
 	background: #ccc;
@@ -23,26 +23,31 @@ header{
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 }
 
-nav	{
+.navigation	{
 	margin: 0 auto;
 	width: 980px;
 }
-nav ul{
+
+.menu_top{
 	margin: 10px 12px;
 	max-width: 100%;
 	float: right;
 	display: flex;
 	/*flex-wrap: wrap-reverse;*/
-	flex-direction: row;*/
+	flex-direction: row;
 }
-nav ul li{
+
+.menu_top,.menu_bottom li{
 	list-style: none;
+}
+
+.menu__list{
 	float: right;
 	display: block;
 	padding: 10px;
 }
 
-nav ul li a{
+.menu_link{
 	padding: 22px 10px;
 	font-size: 16px;
 }
@@ -51,9 +56,14 @@ nav ul li a{
  padding-right: 0px; 
 }
 */
-nav ul li a:hover{
+.menu_link:hover{
 	/*background: rgba(120,120,120,0.3);*/
 	text-decoration: none;
+}
+
+.menu_bottom{
+	margin: 10px 12px;
+	max-width: 100%;
 }
 
 
@@ -165,12 +175,17 @@ article{
 footer{
 	flex: 0 0 auto;
 	width: 100%;
-	height: 300px;
-	margin: 15px auto;
+	height: 250px;
 	padding: 0 1%;
 	background: #ccc;
 }
 
+.footer__container{
+	width: 980px;
+	margin: 0px auto;
+	padding: 0 1%;
+/*	background: #ccc;*/
+}
 
 /*------- Вход в админку --------*/
 .form_admin{
