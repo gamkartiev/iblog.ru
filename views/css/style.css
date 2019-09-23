@@ -23,11 +23,11 @@ header{
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 }
 
-nav	{
+.nav_top	{
 	margin: 0 auto;
 	width: 980px;
 }
-nav ul{
+.menu_top{
 	margin: 10px 12px;
 	max-width: 100%;
 	float: right;
@@ -35,19 +35,19 @@ nav ul{
 	/*flex-wrap: wrap-reverse;*/
 	flex-direction: row;*/
 }
-nav ul li{
+.list_top{
 	list-style: none;
 	float: right;
 	display: block;
 	padding: 10px;
 }
 
-nav ul li a{
+.link_top{
 	padding: 22px 10px;
 	font-size: 16px;
 }
 
-nav ul li a:hover{
+.link_top:hover{
 	/*background: rgba(120,120,120,0.3);*/
 	text-decoration: none;
 }
@@ -85,6 +85,7 @@ section.quote{
 
 .wrapper{
 	width: 980px;
+	padding-bottom: 10px;
 	/*background: #ccc;*/
 }
 
@@ -167,8 +168,22 @@ footer{
 
 .footer_cont{
 	margin: 0 auto;
+	padding: 25px;
+	width: 980px;
 }
 
+.menu_bottom{
+	margin: 20px -20px;
+}
+
+.list_bottom{
+	list-style: none;
+}
+
+.link_bottom{
+	padding: 2px;
+	display: block;
+}
 
 /*------- Вход в админку --------*/
 .form_admin{

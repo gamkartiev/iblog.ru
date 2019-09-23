@@ -17,11 +17,10 @@
   
 
 <main>
-
 <section class="quote">  <!-- quote - цитата -->
   <div class="blockquote">
     Книга, которая хорошо написана, всегда кажется мне слишком короткой. <br>
-Джейн Остин
+    Джейн Остин
   </div>
 </section>
 
@@ -42,44 +41,15 @@
     <?php endforeach ?>
   </section>
 
-  <aside class="interesting"> 
-    <div class="block_name"> Интересное </div>
-    <div class="block_body"> 
-      <?php 
-      // убрать этот кусок кода в окончательной версии
-      if(!isset($show_title)){
-        echo "У тебя пустой массив";}
-        elseif((!isset($show_title)) && is_array($show_title)){
-          echo "У тебя не массив";
-        } 
-      else{ 
-      foreach($show_title as $value): ?>
-      <h4><a href="article.php?id=<?=$a['id']?>"> <?=$value['title']?> </a></h4>
-    <?php endforeach; }?>
+  <!-- Боковая панель загружается из отдельного файла -->
+  <?php include "aside.php" ?>
 
-
-    </div>
-  </aside>
-  <aside class="last_comments"> 
-    <div class="block_name"> Последние комментарии </div>
-    <div class="block_body"> </div>
-  </aside>
 </section>
-
 </main>
 
 
 <footer>
-  <div class="footer_cont">
-    <p>Блог G|I <br>Copyright &copy; 2019</p>
-    <nav>
-      <ul>
-        <li> <a href="/index.php"> Главное   </a></li>
-        <li> <a href="/views/favorites.php"> Избранное  </a></li>
-        <li> <a href="/views/resourses.php"> Ресурсы    </a></li>
-      </ul>
-    </nav>
-  </div>
+ <?php include "footer.php" ?>
 </footer>
   
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 
