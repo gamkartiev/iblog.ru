@@ -9,34 +9,31 @@
 </head>
 
 <body>
-
-
 <header>
   <?php include "header.php" ?>
 </header>
   
-
+<!-- if action = favorites {aticle.favorites}esleif(action=resourses){article.resourses}else articles.all использовать вмето загрузки по ссылкам. -->
 <main>
 <section class="quote">  <!-- quote - цитата -->
   <div class="blockquote">
-    Книга, которая хорошо написана, всегда кажется мне слишком короткой. <br>
-    Джейн Остин
+   <!--  Книга, которая хорошо написана, всегда кажется мне слишком короткой. <br>
+    Джейн Остин -->
   </div>
 </section>
 
 <section class="wrapper">
   <section class="section_article">   <!--Это секция со статьями -->
    <?php foreach($articles as $a): ?> 
-    <article>
-      <img class="article_img" src="../files/<?=$a['image']?>" alt="">
-      <div class="article--cont">
+    <article class="articles_all">
+      <img class="articles_img" src="../files/<?=$a['image']?>" alt="">
+      <div class="articles--cont">
         <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3> 
         <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
-        <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
         <p><?=article_intro($a['content'])?></p> 
         <p><a href="article.php?id=<?=$a['id']?>">Читать далее...</a></p>
-        
       </div>
+      <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
     </article>
     <?php endforeach ?>
   </section>

@@ -10,9 +10,15 @@ body{
 	height: 100%;
 }
 
+h3{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 a{
 	color: #444;
 }
+
 
 /* --- Хедер ---*/
 header{
@@ -65,9 +71,9 @@ main{
 
 section.quote{
 	width: 980px;
-	height: 200px;
+	/*height: 100px;*/
 	/*background: #ccc;*/
-	margin: 15px 0;
+	margin: 15px 0 0 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -84,8 +90,9 @@ section.quote{
 }
 
 .wrapper{
+	margin-top: 50px;
 	width: 980px;
-	padding-bottom: 10px;
+	padding-bottom: 50px;
 	/*background: #ccc;*/
 }
 
@@ -124,9 +131,9 @@ aside.last_comments{
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 }
 
-article{
+.articles_all{
 	padding: 1%;
-	margin-bottom: 3px;
+	margin-bottom: 5px;
 	box-shadow: 0 0 5px 1px #bdb2b2;
 	box-shadow:
  	  0 1px 4px rgba(0, 0, 0, .3),
@@ -137,25 +144,41 @@ article{
 	box-sizing: border-box;
 }
 
-.article_img{
+.articles_img{
 	max-width: 20%;
  	max-height: 150px;
- 	margin: 20px 5px 5px 5px;
+ 	margin: 10px 5px 5px 5px;
 }
 
-.article--cont{
+.articles--cont{
 	margin-left: 5px;
 }
 
-.article--cont em{
+.articles--cont em{
 	font-size: 12px;
 }
 
-.article--cont p{
+.articles--cont p{
 	text-align: left;
 	margin-right: 8px;
 }
 
+/* --------- ----------*/
+.article_one{}
+
+.cont_article_img{
+	margin: 20px auto;
+	max-width: 100%;
+}
+
+.article_img{
+	width: 100%;
+	max-width: 100%;
+}
+
+.article_content{
+	margin: 10px 0;
+}
 
 /* --- Футер ---*/
 footer{
