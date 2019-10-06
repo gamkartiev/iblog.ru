@@ -5,6 +5,6 @@
     
     $link = db_connect();
     $article = article_get($link, $_GET['id']);
-
+//todo Не ззабудь удалить это позже
     include("views/article.php")
 ?>

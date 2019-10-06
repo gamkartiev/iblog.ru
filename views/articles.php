@@ -9,68 +9,44 @@
 </head>
 
 <body>
-
-
 <header>
   <?php include "header.php" ?>
 </header>
   
-
+<!-- if action = favorites {aticle.favorites}esleif(action=resourses){article.resourses}else articles.all использовать вмето загрузки по ссылкам. -->
 <main>
-
 <section class="quote">  <!-- quote - цитата -->
   <div class="blockquote">
-    Книга, которая хорошо написана, всегда кажется мне слишком короткой. <br>
-Джейн Остин
+   <!--  Книга, которая хорошо написана, всегда кажется мне слишком короткой. <br>
+    Джейн Остин -->
   </div>
 </section>
 
 <section class="wrapper">
   <section class="section_article">   <!--Это секция со статьями -->
    <?php foreach($articles as $a): ?> 
-    <article>
-      <img class="article_img" src="../files/<?=$a['image']?>" alt="">
-      <div class="article--cont">
+    <article class="articles_all">
+      <img class="articles_img" src="../files/<?=$a['image']?>" alt="">
+      <div class="articles--cont">
         <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3> 
         <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
-        <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
         <p><?=article_intro($a['content'])?></p> 
         <p><a href="article.php?id=<?=$a['id']?>">Читать далее...</a></p>
-        
       </div>
+      <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
     </article>
     <?php endforeach ?>
   </section>
 
-  <aside class="interesting"> 
-    <div class="block_name"> Интересное </div>
-    <div class="block_body"> 
-      <?php 
-      // убрать этот кусок кода в окончательной версии
-      if(!isset($show_title)){
-        echo "У тебя пустой массив";}
-        elseif((!isset($show_title)) && is_array($show_title)){
-          echo "У тебя не массив";
-        } 
-      else{ 
-      foreach($show_title as $value): ?>
-      <h4><a href="article.php?id=<?=$a['id']?>"> <?=$value['title']?> </a></h4>
-    <?php endforeach; }?>
+  <!-- Боковая панель загружается из отдельного файла -->
+  <?php include "aside.php" ?>
 
-
-    </div>
-  </aside>
-  <aside class="last_comments"> 
-    <div class="block_name"> Последние комментарии </div>
-    <div class="block_body"> </div>
-  </aside>
 </section>
-
 </main>
 
 
 <footer>
-   <p>Блог G|I <br>Copyright &copy; 2019</p>
+ <?php include "footer.php" ?>
 </footer>
   
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 

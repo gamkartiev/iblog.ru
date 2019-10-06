@@ -26,34 +26,17 @@
 
 <section class="wrapper">
   <section class="section_article">   <!--Это секция со статьями -->
-   <!-- <?php foreach($articles as $a): ?>  -->
-    <article>
-      <!-- <img class="article_img" src="../files/<?=$a['image']?>" alt=""> -->
-      <div class="article--cont">
-        <!-- <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3>  -->
-        <!-- <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
-        <p><?=article_intro($a['content'])?></p> 
-        <p><a href="article.php?id=<?=$a['id']?>">Читать далее...</a></p> -->
-      </div>
-    </article>
-    <!-- <?php endforeach ?> -->
   </section>
 
-  <aside class="interesting"> 
-    <div class="block_name"> Интересное </div> 
-    <div class="block_body"> </div>
-  </aside>
-  <aside class="last_comments"> 
-    <div class="block_name"> Последние комментарии </div>
-    <div class="block_body"> </div>
-  </aside>
+  <!-- Боковая панель загружается из отдельного файла -->
+  <?php include "aside.php" ?>
 </section>
 
 </main>
 
 
 <footer>
-   <p>Блог G|I <br>Copyright &copy; 2019</p>
+ <?php include "footer.php" ?>
 </footer>
 
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 

@@ -46,6 +46,8 @@
         $title = trim($title);
         $content = trim($content);
         $image = trim($image);
+
+        $views = 0;
      
         // Проверка
         if (!$title) {
@@ -53,13 +55,14 @@
         }
 
         // Запрос
-        $t = "INSERT INTO articles (title, content, data, image) VALUES ('%s', '%s', '%s', '%s')";     
+        $t = "INSERT INTO articles (title, content, data, image, views) VALUES ('%s', '%s', '%s', '%s', '%s')";     
         
         $query=sprintf($t, 
             mysqli_real_escape_string($link, $title),
             mysqli_real_escape_string($link, $content),
             mysqli_real_escape_string($link, $data),
-            mysqli_real_escape_string($link, $image));
+            mysqli_real_escape_string($link, $image),
+            mysqli_real_escape_string($link, $views));
         
         $qresult = mysqli_query($link, $query); 
 
