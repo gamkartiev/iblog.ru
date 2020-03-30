@@ -10,10 +10,9 @@
 
 <body>
 <header>
-  <?php include "header.php" ?>
+  <?php include "header.php"; ?>
 </header>
-  
-<!-- if action = favorites {aticle.favorites}esleif(action=resourses){article.resourses}else articles.all использовать вмето загрузки по ссылкам. -->
+
 <main>
 <section class="quote">  <!-- quote - цитата -->
   <div class="blockquote">
@@ -24,32 +23,42 @@
 
 <section class="wrapper">
   <section class="section_article">   <!--Это секция со статьями -->
-   <?php foreach($articles as $a): ?> 
+
+   <?php foreach($articles as $a): ?>
+
     <article class="articles_all">
       <img class="articles_img" src="../files/<?=$a['image']?>" alt="">
       <div class="articles--cont">
-        <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3> 
+        <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3>
         <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
-        <p><?=article_intro($a['content'])?></p> 
+        <p><?=article_intro($a['content'])?></p>
         <p><a href="article.php?id=<?=$a['id']?>">Читать далее...</a></p>
       </div>
-      <p> <i> Количество просмотров:</i><?=$a['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
+       <!-- Поставить тут значок колличество просмотров статьи-->
     </article>
+
     <?php endforeach ?>
+
   </section>
 
   <!-- Боковая панель загружается из отдельного файла -->
-  <?php include "aside.php" ?>
+  <?php include "aside.php"; ?>
 
 </section>
-</main>
 
+<div class="pagination">
+  <?php
+    getPagination($link); //пагинация
+   ?>
+</div>
+
+</main>
 
 <footer>
  <?php include "footer.php" ?>
 </footer>
-  
-    <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода --> 
+
+    <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода -->
 
 </body>
 </html>

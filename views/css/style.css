@@ -19,7 +19,6 @@ a{
 	color: #444;
 }
 
-
 /* --- Хедер ---*/
 header{
 	width: 100%;
@@ -103,34 +102,6 @@ section .section_article{
 	float: left;
 }
 
-/*----- Боковая панель -----*/
-aside{
-	width: 265px;
-	height: 432px;
-	margin: 0 0 0px 15px;
-	/*background: #ccc;*/
-	float: right;
-	box-sizing: border-box;
-}
-
-aside.last_comments{
-	margin: 15px 0 0 0;
-}
-
-.block_name{
-	padding: 5px;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
-	background: #ccc;
-	margin-bottom: 4px;
-}
-
-.block_body{
-	height: 400px;
-	width: 100%;
-	background: #ccc;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
-}
-
 .articles_all{
 	padding: 1%;
 	margin-bottom: 5px;
@@ -163,7 +134,22 @@ aside.last_comments{
 	margin-right: 8px;
 }
 
-/* --------- ----------*/
+/*--- Пагинация ---*/
+.pagination a{
+	text-transform: center;
+	text-decoration: none;
+	padding: 10px;
+	float: left;
+	margin: 0 10px 10px 0;
+	box-shadow: 0 0 5px 1px #bdb2b2;
+}
+
+.pagination a:hover, .pagination a:active{
+	color: white;
+	background: #048ef1;
+}
+
+/* --------- Оформление одной статьи ----------*/
 .article_one{}
 
 .cont_article_img{
@@ -178,6 +164,54 @@ aside.last_comments{
 
 .article_content{
 	margin: 10px 0;
+}
+
+/*----- Боковая панель -----*/
+aside{
+	width: 265px;
+	height: 432px;
+	margin: 0 0 0px 15px;
+	/*background: #ccc;*/
+	float: right;
+	box-sizing: border-box;
+}
+
+aside.last_comments{
+	margin: 15px 0 0 0;
+}
+
+.block_name{
+	padding: 5px 0 5px 40px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+	background: #ccc;
+	margin-bottom: 4px;
+}
+
+.block_body{
+	height: 400px;
+	width: 100%;
+	padding: 5px 0;
+
+	background: #ccc;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+
+.menu_aside{
+	margin: 5px 0px;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+.list_aside{
+	list-style: none;
+	padding: 2px 0;
+	display: block;
+}
+
+.link_aside{
+	padding: 5px 0;
+	display: block;
+/*	font-size: 16px;*/
 }
 
 /* --- Футер ---*/
@@ -234,12 +268,26 @@ form input{
 }
 
 /*------- Админка --------*/
+
+.admin_p_btn{
+	margin: 20px auto;
+	font-size: 18px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.admin_p_btn_home, .admin_p_btn_logout, {
+	padding: 10px 0px;
+}
+
+.table{
+	margin-top: 20px;
+}
 tr:hover{
-	background: rgba(255,255,255,0.4);	
+	background: rgba(255,255,255,0.4);
 }
 td a{
-	width: 100%;
+	width: 70%;
 	height: 100%;
 	display: block;
 }
-

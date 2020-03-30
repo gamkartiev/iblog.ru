@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
  	<title>Мой первый блог</title>
@@ -8,19 +8,17 @@
 </head>
 
 <body>
-
 <header>
     <?php include "header.php" ?>
 </header>
 
-
 <main>
 <section class="quote">  <!-- quote - цитата -->
   <div class="blockquote">
-    Хоть и не ново, я напомню снова: <br>
+    <!-- Хоть и не ново, я напомню снова: <br>
     Перед лицом и друга и врага, <br>
     Ты - господин несказанного слова,<br>
-    А сказанного слова - ты слуга!<br>
+    А сказанного слова - ты слуга!<br> -->
   </div>
 </section>
 
@@ -30,6 +28,7 @@
 
   <!-- Боковая панель загружается из отдельного файла -->
   <?php include "aside.php" ?>
+
 </section>
 </main>
 
