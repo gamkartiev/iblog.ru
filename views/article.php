@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['id'] = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -14,18 +18,45 @@
 </header>
 
 <main>
-    <section class="wrapper">
-        <section class="section_article">
-            <h3><?=$article['title'] ?></h3>
-            <em>Опубликовоно: <?=$article['data']?></em>
-             <!-- <p> <i> Количество просмотров: </i><?//=$article['views']; ?></p>        <! Переделать текст в значок и переставить место -->
-            <div class="cont_article_img"> <img class="article_img" src="../files/<?=$article['image']?>" alt=""> </div>
-            <p class="article_content"><?=$article['content']?></p>
-        </section>
+<section class="wrapper">
+  <section class="section_article">
+      <h3><?=$article['title'] ?></h3>
+      <em>Опубликовоно: <?=$article['data']?></em>
+      <div class="cont_article_img"> <img class="article_img" src="../files/<?=$article['image']?>" alt=""> </div>
+      <p class="article_content"><?=$article['content']?></p>
 
-      <!-- Боковая панель загружается из отдельного файла -->
-      <?php include "aside.php" ?>
-    </section>
+  </section>
+<?php  var_dump($_GET['id']) ?>
+  <!-- Боковая панель -->
+  <?php include "aside.php" ?>
+</section>
+
+<section>
+<div class="view_comment">
+  <?php foreach ($all_comment as $a): ?>
+  <div class="title_comment">
+  <p class="name_comment"> <?=$a['name']?> </p>
+  <p class="time_comment"> <?=date("H:i", $a['comment_time'])?> </p>
+  <p class="data_comment"> <?=date("d.m.Y", $a['comment_time'])?> </p>
+  </div>
+  <div class="comment"> <?=$a['comment_text']?> </div>
+  <?php endforeach ?>
+</div>
+
+  <hr>
+  <h2>Оставить комментарий</h2>
+<form method="post" action="article.php" class="form">
+  <p> Ваше имя </p>
+  <input type="text" name="name" class="form_name" required>
+
+  <p> Ваш комментарий </p>
+  <textarea name="comment_text" class="form_comment"></textarea>
+  <div class="text-center">
+  <button name="enter_comment" class="submit-button">Отправить</button>
+  </div>
+</form>
+</section>
+
 </main>
 
 <footer>

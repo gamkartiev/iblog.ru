@@ -206,6 +206,123 @@ section .section_article
 	margin: 10px 0;
 }
 
+
+/*------ Комментарии к статье ------*/
+.view_comment
+{
+	margin: 0 110px;
+}
+
+.title_comment
+{
+	width: 250px;
+	height: 35px;
+	padding-top: 15px;
+}
+
+.name_comment
+{
+	width: 80px;
+	float: left;
+}
+
+.time_comment
+{
+	float: left;
+	padding: 10px;
+	font-weight: lighter;
+	font-size: 10px;
+}
+
+.data_comment
+{
+	float: left;
+	padding: 10px 0;
+	font-weight: lighter;
+	font-size: 10px;
+}
+
+.comment
+{
+	margin: 0 0 25px 0;
+	clear: both;
+	font-weight: lighter;
+	font-size: 14px;
+}
+
+.hr_comment{
+	margin: 0 110px;
+	color: #ccc;
+	background-color: #ccc;
+	height: 1px;
+}
+
+/*------Форма-------*/
+.form
+{
+	margin-left: 110px;
+	margin-bottom: 40px;
+	width: 460px;
+}
+
+h2
+{
+	font-size: 24px;
+	font-weight: 400;
+	margin: 25px 0 25px 110px;
+}
+
+form p
+{
+	font-size: 14px;
+	font-weight: lighter;
+}
+
+.form_name
+{
+	height: 44px;
+	width: 460px;
+	padding-left: 20px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.form_comment
+{
+	height: 130px;
+	width: 460px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	border: 2px solid black;
+   -webkit-border-radius: 5px; /*//закругление углов (Google Chrome)*/
+   -moz-border-radius: 5px;/* //закругление углов (FireFox)*/
+   	border-radius: 5px; /*//закругление углов (общее)*/
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+	font-size: 14px;
+	resize: none;
+}
+
+.text-center
+{
+	text-align: right;
+}
+
+.submit-button
+{
+	display: inline-block;
+	margin-top: 10px;
+	width: 130px;
+	height: 40px;
+	border: 2px solid black;
+	background: #eeeeee;
+	-webkit-border-radius: 5px; /*//закругление углов (Google Chrome)*/
+   -moz-border-radius: 5px;/* //закругление углов (FireFox)*/
+   	border-radius: 5px;/* //закругление углов (общее)*/
+}
+
+
 /*----- Боковая панель -----*/
 aside{
 	width: 265px;

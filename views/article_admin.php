@@ -17,7 +17,7 @@
 <h3><a href="/admin">Панель администратора</a></h3>
 
 <h3>
-    <?php 
+    <?php
         // Вывод слова добавление статьи или удалиние в зависимости от спецификатора $action
         if ($action == "add") {
              echo "Добавить статью";
@@ -40,16 +40,16 @@
     </label>
     </div>
     <label class="button button-file-upload">
-        <p>Выберите файл</p> 
+        <p>Выберите файл</p>
         <input class="submit" type="file" name="upload" value="<?=$article['image']?>">
         <input type="hidden" name="image" value="<?=$article['image']?>">
     </label>
      <?php if ($article['image'] == "") {
             echo "Файл не был выбран";
         }else{
-            
+
             echo '<img class="article_img" src="../files/'.$article['image'].'" />';
-        } 
+        }
         ?>
     <label class="label_form label_form_center">
         <p>Содержимое:</p>
@@ -60,14 +60,14 @@
 </form>
 
 </main>
-       
+
 <footer>
    <!--  <p>Мой первый блог<br>Copyright &copy; 2016</p> -->
     <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>  <!--код для расширения livereload - автоматического обновления страницы сайта после сохранения кода -->
 <footer>
-    
 
-    
+
+
 </body>
 
 </html>

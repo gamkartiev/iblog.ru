@@ -77,7 +77,7 @@ function article_get($link, $id_article)
     views_counter($link, $id_article);
 
     // Запрос
-    $query = "SELECT * FROM `articles` WHERE id=".(int)$id_article;
+    $query = "SELECT * FROM `articles` WHERE `id`=".(int)$id_article;
     $result = mysqli_query($link, $query);
 
     if (!$result)
@@ -188,7 +188,6 @@ function article_intro($text, $len = 500)
 
 
 
-
 // Нужно залить работу с изображениями сюда, в отдельную функцию
 function image_processing() {}
 
@@ -200,7 +199,6 @@ function views_counter($link, $id)
     $query = "UPDATE articles SET views = views + 1 WHERE id = $id";
     $result = mysqli_query($link, $query);
 }
-
 
 
 
@@ -247,7 +245,8 @@ function save_user($link, $login, $password)
   return true;
 }
 
-//Получение логина и пароля для юзеров
+
+//Получение логина и пароля для пользователей
 function get_user($link, $login, $password)
 {
   //Защита от тегов и скриптов
@@ -290,5 +289,55 @@ function get_user($link, $login, $password)
 
 }
 
+
+
+//Добавление комментарий в БД
+function new_comment($link, $id_article, $user, $comment_text)
+{
+  $user = trim($user);
+  $id_article = trim($id_article);
+  $comment_text = trim($comment_text);
+  $comment_time =  time();
+
+  //Запрос
+  $t = "INSERT INTO `comment` (`id_article`, `user`, `comment_time`, `comment_text`) VALUES('%s', '%s', '%s', '%s')";
+  $query = sprintf($t,
+      mysqli_real_escape_string($link, $id_article),
+      mysqli_real_escape_string($link, $user),
+      mysqli_real_escape_string($link, $comment_time),
+      mysqli_real_escape_string($link, $comment_text));
+
+  $qresult = mysqli_query($link, $query);
+
+  if (!$qresult) {
+      die(mysqli_error($link));
+  }
+
+  return true;
+}
+
+
+
+//Вывод всеx комментарий статьи
+function all_comment($link, $id_article)
+{
+  $query = "SELECT id_comments, user, comment_time, comment_text FROM `comment` WHERE id_article=".$id_article;
+  $result = mysqli_query($link, $query);
+
+  if (!$result) {
+      die(mysqli_error($link));
+  }
+
+  // Извлечение из БД
+  $n = mysqli_num_rows($result);
+  $all_comment = array();
+
+  for ($i = 0; $i < $n; $i++){
+      $row = mysqli_fetch_assoc($result);
+      $all_comment[] =$row;
+  }
+
+  return $all_comment;
+}
 
 ?>
