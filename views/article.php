@@ -26,7 +26,7 @@ $_SESSION['id'] = $_GET['id'];
       <p class="article_content"><?=$article['content']?></p>
 
   </section>
-<?php  var_dump($_GET['id']) ?>
+
   <!-- Боковая панель -->
   <?php include "aside.php" ?>
 </section>
