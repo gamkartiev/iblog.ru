@@ -13,25 +13,20 @@
     <?php include "header.php"?>
 </header>
 
-
-
 <main>
     <section class="wrapper">
         <section class="section_article">
-        <!-- <article class="article_one"> -->
             <h3><?=$article['title'] ?></h3>
             <em>Опубликовоно: <?=$article['data']?></em>
-             <!-- <p> <i> Количество просмотров: </i><?//=$article['views']; ?></p>        <!-- Переделать текст в значок и переставить место -->
+             <!-- <p> <i> Количество просмотров: </i><?//=$article['views']; ?></p>        <! Переделать текст в значок и переставить место -->
             <div class="cont_article_img"> <img class="article_img" src="../files/<?=$article['image']?>" alt=""> </div>
             <p class="article_content"><?=$article['content']?></p>
-        <!-- </article> -->
         </section>
 
       <!-- Боковая панель загружается из отдельного файла -->
       <?php include "aside.php" ?>
     </section>
 </main>
-
 
 <footer>
  <?php include "footer.php" ?>

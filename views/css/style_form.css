@@ -1,79 +1,98 @@
 body{
-	font-size: 18px;
-	font-family: "Roboto slab", sans-serif;
+background: #f4f4f4;
+font-size: 18px;
+font-family: "Roboto slab", sans-serif;
 }
 
-p{
-	margin: 0; padding: 0;
+a:hover
+{
+color: #3E7BAB;
+text-decoration: none;
 }
 
-main{
-	margin: 50px auto;
-	height: 500px;
-	width: 980px;
+a:visited
+{
+color: #3E7BAB;
+text-decoration: none;
 }
 
-.add_article{
-	padding-bottom: 30px;
-	background: #ccc;
-	display: flex;
-	flex-direction: column;
+a:active
+{
+color: #3E7BAB;
+text-decoration: none;
 }
 
-.float_left label{
-	padding: 10px 30px 10px 0;
-	float: left;
-}
-.label_form{
-	margin: 10px;
+a:link
+{
+color: #3E7BAB;
+text-decoration: none;
 }
 
-.label_form_center{
-	margin: 10px auto;
+/*------- Вход в админку --------*/
+.formEnter
+{
+width: 350px;
+margin: 7% auto 0;
+background: #fff;
+padding: 20px;
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+
 }
 
-input[type="file"]{
-	display: none;
-}
-.button-file-upload {
-	text-align: center;
-    border: 1px solid #000;
-    display: inline-block;
-    padding: 10px 12px;
+.formEnter p
+{
+font-size: 22px;
+font-weight: 700;
 }
 
-input, textarea{
-	font-size: 14px;
-	font-family: "Roboto slab", sans-serif;
-	-webkit-border-radius: 5px; /*//закругление углов (Google Chrome)*/
-   	-moz-border-radius: 5px;/* //закругление углов (FireFox)*/
-   	border-radius: 5px;/* //закругление углов (общее)*/
+form
+{
+font-size: 18px;
+padding: 10px 0;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
 }
 
-.button{
-	width: 130px;
-	padding: 10px 12px;
-	margin: 30px 0 0 10px;
-	-webkit-border-radius: 5px; /*//закругление углов (Google Chrome)*/
-   	-moz-border-radius: 5px;/* //закругление углов (FireFox)*/
-   	border-radius: 5px;/* //закругление углов (общее)*/
-   	box-shadow: 0 0 2px rgba(0, 0, 0, 1);
-	font-family: "Roboto slab", sans-serif;
-	font-size: 14px;
+input
+{
+margin: 15px 0;
+width: 99%;
+height: 40px;
+font-size: 16px;
+}
+
+input:invalid
+{
+	border: 2px dashed red;
+}
+
+/* input:valid
+{
+	border: 2px solid black;
+} */
+
+button
+{
+margin: 15px 0;
+width: 100%;
+height: 46px;
+background: #558cb7;
+border: 0;
+font-size: 16px;
+color: #fff;
+}
+
+button:hover
+{
 	cursor: pointer;
+	background: #497698;
 }
 
-.button:hover{
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-}
-
-.article_img{
-	max-width: 15%;
- 	margin: 5px 0 30px 10px;
-}
-
-.text{
-	height: 200px;
-	width: 960px;
-	resize: none;
+.layout_footer
+{
+width: 350px;
+margin: 1% auto;
+background: #fff;
+padding: 20px;
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
 }

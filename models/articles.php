@@ -1,7 +1,10 @@
 <?php
-header("Content-Type: text/html; charset=utf-8");
+// header("Content-Type: text/html; charset=utf-8");
 
-function getPagination($link){
+
+//Пагинация для главной страницы (вывод всех статей)
+function getPagination($link)
+{
   $kol = 4; //количество записей для вывода. Дублировано в function article_all
   $query = "SELECT COUNT(*) FROM `articles`"; //сколько эл-ов в табл.
   $result = mysqli_query ($link, $query);
@@ -20,11 +23,10 @@ function getPagination($link){
 }
 
 //Вывод всех статей на главной странице
-function article_all($link, $page) {
-
-    $kol = 4;  //количество записей для вывода. Дублировано в function getPagination
+function article_all($link, $page)
+{
+    $kol = 5;  //количество записей для вывода. Дублировано в function getPagination
     $start = ($page*$kol)-$kol; //с какой страницы записи выводить
-
 
     // Запрос
     $query = "SELECT * FROM `articles`  ORDER BY id DESC LIMIT $start, $kol";
@@ -41,13 +43,14 @@ function article_all($link, $page) {
         $row = mysqli_fetch_assoc($result);
         $articles[] =$row;
     }
-
     return $articles;
 }
 
-//Вывод всех статей в админке
-function article_all_admin($link) {
 
+
+//Вывод всех статей в админке
+function article_all_admin($link)
+{
     // Запрос
     $query = "SELECT * FROM `articles` ORDER BY id DESC";
     $result = mysqli_query($link, $query);
@@ -69,7 +72,8 @@ function article_all_admin($link) {
 
 
 //Вывод одной статьи
-function article_get($link, $id_article) {
+function article_get($link, $id_article)
+{
     views_counter($link, $id_article);
 
     // Запрос
@@ -87,7 +91,8 @@ function article_get($link, $id_article) {
 
 
 //Новая статья
-function article_new($link, $title, $content, $data, $image) {
+function article_new($link, $title, $content, $data, $image)
+{
     // Подготовка
     $title = trim($title);
     $content = trim($content);
@@ -123,7 +128,8 @@ function article_new($link, $title, $content, $data, $image) {
 
 
 //Изменение статьи
-function article_edit($link, $id, $title, $content, $data, $image) {
+function article_edit($link, $id, $title, $content, $data, $image)
+{
     // Подготовка
     $title = trim($title);
     $content = trim($content);
@@ -154,7 +160,8 @@ function article_edit($link, $id, $title, $content, $data, $image) {
 
 
 //удаление статьи
-function article_delete($link, $id) {
+function article_delete($link, $id)
+{
     // Подготовка
     $id = (int)$id;
 
@@ -174,7 +181,8 @@ function article_delete($link, $id) {
 
 
 //обрезка вывода текста статьи на главной странице
-function article_intro($text, $len = 500) {
+function article_intro($text, $len = 500)
+{
     return mb_substr($text, 0, $len);
 }
 
@@ -187,7 +195,8 @@ function image_processing() {}
 
 
 //счетчик просмотра страницы. Проблема - записывает только после входа и выхода.
-function views_counter($link, $id) {
+function views_counter($link, $id)
+{
     $query = "UPDATE articles SET views = views + 1 WHERE id = $id";
     $result = mysqli_query($link, $query);
 }
@@ -196,7 +205,8 @@ function views_counter($link, $id) {
 
 
 //Вывод заголовков статей по популярности в блоке Интересное. Проблема - Не ограничен вывод статей
-function show_title($link) {
+function show_title($link)
+{
     // Запрос
     $query = "SELECT id, title, views FROM `articles` ORDER BY views DESC LIMIT 10";
     $result = mysqli_query($link, $query);
@@ -215,4 +225,70 @@ function show_title($link) {
 
     return $show_title;
 }
+
+
+//Регистрация нового пользователя
+function save_user($link, $login, $password)
+{
+  $login = trim($login);
+  $password = trim($password);
+
+  $t = "INSERT INTO users(login, password) VALUES ('%s', '%s')";
+
+  $query = sprintf($t,
+  mysqli_real_escape_string($link, $login),
+  mysqli_real_escape_string($link, $password));
+
+  $qresult = mysqli_query($link, $query);
+
+  if(!$qresult)
+    { die(mysqli_error($link)); }
+
+  return true;
+}
+
+//Получение логина и пароля для юзеров
+function get_user($link, $login, $password)
+{
+  //Защита от тегов и скриптов
+  $login = stripslashes($login);
+  $login = htmlspecialchars($login);
+  $password = stripslashes($password);
+  $password = htmlspecialchars($password);
+  //Убираем лишние пробелы
+  $login = trim($login);
+  $password = trim($password);
+
+  $query = "SELECT * FROM `users` WHERE login='$login'";
+  $result = mysqli_query($link, $query);
+
+  if(!$result)
+     die(mysqli_error($link));
+
+  $myrow = mysqli_fetch_array($result);
+  if(empty($myrow['password']))
+  {
+    //Если пользователя с таким логином не существует
+    echo "Извините, введенный Вами логин или пароль неверный";
+    return;
+  }
+  else
+  {
+      //Если сушествует, то сверяем пароли
+      if($myrow['password']==$password)
+      {
+        //Если пароли совпадают, то запускаем пользователю сессию
+        $_SESSION['login'] = $myrow['login'];
+        $_SESSION['id'] = $myrow['id'];
+
+      }
+      else {
+        echo "Извините, введенный Вами логин или пароль неверный";
+        return;
+      }
+  }
+
+}
+
+
 ?>

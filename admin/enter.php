@@ -18,7 +18,6 @@ if($_POST['submit']){
 
  ?>
 
-<!DOCTYPE>
 <!DOCTYPE html>
 <html>
 <head>

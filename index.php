@@ -1,38 +1,65 @@
 <?php
+   session_start();
     header("Content-Type: text/html; charset=utf-8");
- //   error_reporting(E_ALL);
+   //error_reporting(E_ALL);
     require_once("database.php");
     require_once("models/articles.php");
 
     $link = db_connect();
-    if (isset($_GET['page'])){
-      $page = $_GET['page'];
-    } else {
-      $page = 1;
+    // $login = "";
+
+//Выход из аккаунта
+    if(($_GET['do']) == 'logout')
+    {
+    	unset($_SESSION['admin']);
+    	session_destroy();
+      header("Location: index.php");
     }
 
-    $articles = article_all($link, $page);
-    $show_title = show_title($link);
+ //Вход на сайт пользователя
+  if(isset($_GET['authentication']))
+    { $authentication = $_GET['authentication'];}
 
-
-
-//Навигация по сайту
-    if (isset($_GET['menu'])) {
-    	$menu = $_GET['menu'];
-    }else {
-    	$menu = "";
+  if($authentication == 'enter')
+    {
+      include("views/formEnter.php");
+      exit;
     }
+  elseif($authentication == 'registration')
+    {
+      if(!empty($_POST))
+      {
+        save_user($link, $_POST['login'], $_POST['password']);
+        header("Location: index.php");
+      }
+     include("views/formRegistration.php");
+     exit;
+    }
+  //
 
-    if ($menu == 'favorites'){
-    	include ("views/favorites.php");
-    }
-    elseif ($menu == 'resourses') {
-    	include ("views/resourses.php");
-    }
-    else{
-    	include("views/articles.php");
-    }
+  //Пагинация
+    if(isset($_GET['page']))
+      {$page = $_GET['page']; }
+    else
+      {$page = 1;}
+  //
 
+  $articles = article_all($link, $page);
+  $show_title = show_title($link); //Вывод заголовков статей по популярности в блоке Интересное
+
+  //Навигация по сайту
+    if(isset($_GET['menu']))
+      {$menu = $_GET['menu'];}
+    else
+      {$menu = "";}
+
+    if($menu == 'favorites')
+      {	include("views/favorites.php"); }
+    elseif($menu == 'resourses')
+      {	include("views/resourses.php"); }
+    else
+      { include("views/articles.php"); }
+  //
 
 
 ?>

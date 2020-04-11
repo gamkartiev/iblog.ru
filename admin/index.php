@@ -1,4 +1,5 @@
 <?php
+// session_start();
 header("Content-Type: text/html; charset=utf-8");
 ini_set('display_errors',1);
     require("auth.php");

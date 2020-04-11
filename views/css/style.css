@@ -1,7 +1,10 @@
-html{
+html
+{
 	height: 100%;
 }
-body{
+
+body
+{
 	padding: 0; margin: 0;
 	background: #eef3fb no-repeat top center fixed;
 	font-size: 14px;
@@ -10,29 +13,51 @@ body{
 	height: 100%;
 }
 
-h3{
+h3
+{
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 
-a{
+a
+{
 	color: #444;
 }
 
 /* --- Хедер ---*/
-header{
+header
+{
 	width: 100%;
-	/*flex: 1 0 auto;*/ /*чтобы в article.php хедер не увеличивал height*/
 	background: #ccc;
 	color: white;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+
 }
 
-.nav_top	{
+.nav_top
+{
 	margin: 0 auto;
 	width: 980px;
+	display: flex;
+	justify-content: flex-end;
+	-ms-align-items: center;
+	align-items: center;
 }
-.menu_top{
+
+.nav_top section a
+{
+	padding: 22px 10px;
+	color: #444;
+}
+
+.nav_top section a:hover
+{
+	background: #444;
+	color: #fff;
+}
+
+.menu_top
+{
 	margin: 10px 12px;
 	max-width: 100%;
 	float: right;
@@ -40,26 +65,30 @@ header{
 	/*flex-wrap: wrap-reverse;*/
 	flex-direction: row;*/
 }
-.list_top{
+
+.list_top
+{
 	list-style: none;
 	float: right;
 	display: block;
 	padding: 10px;
 }
 
-.link_top{
+.link_top
+{
 	padding: 22px 10px;
 	font-size: 16px;
 }
 
-.link_top:hover{
-	/*background: rgba(120,120,120,0.3);*/
+.link_top:hover
+{
 	text-decoration: none;
 }
 
 
 /* --- Основной контейнер ---*/
-main{
+main
+{
 	flex: 1 0 auto;
 	width: 980px;
 	min-height: 80%;
@@ -68,41 +97,43 @@ main{
 	flex-direction: column;
 }
 
-section.quote{
+section.quote
+{
 	width: 980px;
-	/*height: 100px;*/
-	/*background: #ccc;*/
 	margin: 15px 0 0 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 }
-.blockquote{
+
+.blockquote
+{
 	font-size: 18px;
 	padding: 10px 20px;
 	font-family: Trattatello, fantasy, sans-serif;
 }
 
-.quote>p{
+.quote>p
+{
 	text-align: center;
 }
 
-.wrapper{
+.wrapper
+{
 	margin-top: 50px;
 	width: 980px;
 	padding-bottom: 50px;
-	/*background: #ccc;*/
 }
 
-section .section_article{
+section .section_article
+{
 	width: 700px;
 	min-height: 500px;
-/*	background: #ccc;*/
 	float: left;
 }
 
-.articles_all{
+.articles_all
+{
 	padding: 1%;
 	margin-bottom: 5px;
 	box-shadow: 0 0 5px 1px #bdb2b2;
@@ -115,27 +146,32 @@ section .section_article{
 	box-sizing: border-box;
 }
 
-.articles_img{
+.articles_img
+{
 	max-width: 20%;
- 	max-height: 150px;
- 	margin: 10px 5px 5px 5px;
+	max-height: 150px;
+	margin: 10px 5px 5px 5px;
 }
 
-.articles--cont{
+.articles--cont
+{
 	margin-left: 5px;
 }
 
-.articles--cont em{
+.articles--cont em
+{
 	font-size: 12px;
 }
 
-.articles--cont p{
+.articles--cont p
+{
 	text-align: left;
 	margin-right: 8px;
 }
 
 /*--- Пагинация ---*/
-.pagination a{
+.pagination a
+{
 	text-transform: center;
 	text-decoration: none;
 	padding: 10px;
@@ -144,7 +180,8 @@ section .section_article{
 	box-shadow: 0 0 5px 1px #bdb2b2;
 }
 
-.pagination a:hover, .pagination a:active{
+.pagination a:hover, .pagination a:active
+{
 	color: white;
 	background: #048ef1;
 }
@@ -152,17 +189,20 @@ section .section_article{
 /* --------- Оформление одной статьи ----------*/
 .article_one{}
 
-.cont_article_img{
+.cont_article_img
+{
 	margin: 20px auto;
 	max-width: 100%;
 }
 
-.article_img{
+.article_img
+{
 	width: 100%;
 	max-width: 100%;
 }
 
-.article_content{
+.article_content
+{
 	margin: 10px 0;
 }
 
@@ -171,51 +211,55 @@ aside{
 	width: 265px;
 	height: 432px;
 	margin: 0 0 0px 15px;
-	/*background: #ccc;*/
 	float: right;
 	box-sizing: border-box;
 }
 
-aside.last_comments{
+aside.last_comments
+{
 	margin: 15px 0 0 0;
 }
 
-.block_name{
+.block_name
+{
 	padding: 5px 0 5px 40px;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 	background: #ccc;
 	margin-bottom: 4px;
 }
 
-.block_body{
+.block_body
+{
 	height: 400px;
 	width: 100%;
 	padding: 5px 0;
-
 	background: #ccc;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 }
 
-.menu_aside{
+.menu_aside
+{
 	margin: 5px 0px;
 	max-width: 100%;
 	box-sizing: border-box;
 }
 
-.list_aside{
+.list_aside
+{
 	list-style: none;
 	padding: 2px 0;
 	display: block;
 }
 
-.link_aside{
+.link_aside
+{
 	padding: 5px 0;
 	display: block;
-/*	font-size: 16px;*/
 }
 
 /* --- Футер ---*/
-footer{
+footer
+{
 	flex: 0 0 auto;
 	width: 100%;
 	height: 250px;
@@ -223,70 +267,85 @@ footer{
 	background: #ccc;
 }
 
-.footer_cont{
+.footer_cont
+{
 	margin: 0 auto;
 	padding: 25px;
 	width: 980px;
 }
 
-.menu_bottom{
+.menu_bottom
+{
 	margin: 20px -20px;
 }
 
-.list_bottom{
+.list_bottom
+{
 	list-style: none;
 }
 
-.link_bottom{
+.link_bottom
+{
 	padding: 2px;
 	display: block;
 }
 
 /*------- Вход в админку --------*/
-.form_admin{
+/* .formEnter
+{
 	width: 30%;
-	min-height: 60%;
-	margin: 20 auto;
+	margin: 20px auto;
 	background: rgba(255,255,255,0.4);
 }
 
-
-a.submit1{
+a.submit1
+{
 	padding: 3%;
 	display: block;
 }
-.submit1:hover{
+
+.submit1:hover
+{
 	background: rgba(204,204,204,0.7);
 }
 
-form {
-	margin: 15% 27%;
+form
+{
+
 }
 
-form input{
+form input
+{
 	margin: 2% 0;
-}
+} */
 
 /*------- Админка --------*/
 
-.admin_p_btn{
+.admin_p_btn
+{
 	margin: 20px auto;
 	font-size: 18px;
 	display: flex;
 	justify-content: space-between;
 }
 
-.admin_p_btn_home, .admin_p_btn_logout, {
+.admin_p_btn_home, .admin_p_btn_logout
+{
 	padding: 10px 0px;
 }
 
-.table{
+.table
+{
 	margin-top: 20px;
 }
-tr:hover{
+
+tr:hover
+{
 	background: rgba(255,255,255,0.4);
 }
-td a{
+
+td a
+{
 	width: 70%;
 	height: 100%;
 	display: block;
