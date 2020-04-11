@@ -273,18 +273,18 @@ function get_user($link, $login, $password)
   }
   else
   {
-      //Если сушествует, то сверяем пароли
-      if($myrow['password']==$password)
-      {
-        //Если пароли совпадают, то запускаем пользователю сессию
-        $_SESSION['login'] = $myrow['login'];
-        $_SESSION['id'] = $myrow['id'];
-
-      }
-      else {
-        echo "Извините, введенный Вами логин или пароль неверный";
-        return;
-      }
+    //Если сушествует, то сверяем пароли
+    if($myrow['password']==$password)
+    {
+      //Если пароли совпадают, то запускаем пользователю сессию
+      $_SESSION['login'] = $myrow['login'];
+      $_SESSION['id'] = $myrow['id'];
+    }
+    else
+    {
+      echo "Извините, введенный Вами логин или пароль неверный";
+      return;
+    }
   }
 
 }

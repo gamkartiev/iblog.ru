@@ -1,12 +1,9 @@
 <?php
-session_start();
-
 if($_SESSION['login'])
 {
 	header("Location: index.php");
 	exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +16,14 @@ if($_SESSION['login'])
 <body>
 
 <section class="formEnter">
-<?php
-if(isset($_POST['button']))
-{
-	$login = $_POST['login'];
-	$password = $_POST['password'];
-
-	get_user($link, $login, $password);
-}
-?>
+	<?php
+	if(isset($_POST['button']))
+	{
+		$login = $_POST['login'];
+		$password = $_POST['password'];
+		get_user($link, $login, $password);
+	}
+	 ?>
 	<p>Вход</p>
 	<a class="submit1" href="/index.php"> На главную </a>
 	<form class="open_admin" method="post">

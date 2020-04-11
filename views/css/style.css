@@ -44,18 +44,6 @@ header
 	align-items: center;
 }
 
-.nav_top section a
-{
-	padding: 22px 10px;
-	color: #444;
-}
-
-.nav_top section a:hover
-{
-	background: #444;
-	color: #fff;
-}
-
 .menu_top
 {
 	margin: 10px 12px;
@@ -84,6 +72,37 @@ header
 {
 	text-decoration: none;
 }
+
+.nav_top section a
+{
+	padding: 22px 10px;
+	color: #444;
+}
+
+.nav_top section a:hover
+{
+	background: #444;
+	color: #fff;
+}
+
+.login
+{
+	display: flex;
+}
+
+.login_name
+{
+	padding: 22px 10px;
+	font-size: 22px;
+	color: #fff;
+}
+
+.login a
+{
+	margin: auto;
+}
+
+
 
 
 /* --- Основной контейнер ---*/

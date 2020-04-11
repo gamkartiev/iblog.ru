@@ -1,12 +1,12 @@
 <?php
    session_start();
     header("Content-Type: text/html; charset=utf-8");
-   //error_reporting(E_ALL);
+   // error_reporting(E_ALL);
     require_once("database.php");
     require_once("models/articles.php");
 
+
     $link = db_connect();
-    // $login = "";
 
 //Выход из аккаунта
     if(($_GET['do']) == 'logout')
@@ -15,6 +15,7 @@
     	session_destroy();
       header("Location: index.php");
     }
+
 
  //Вход на сайт пользователя
   if(isset($_GET['authentication']))

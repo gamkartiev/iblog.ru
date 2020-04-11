@@ -1,7 +1,7 @@
-<?php
-session_start();
-$_SESSION['id'] = $_GET['id'];
-?>
+<!-- <?php
+// session_start();
+// $_SESSION['id'] = $_GET['id'];
+?> -->
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -35,7 +35,7 @@ $_SESSION['id'] = $_GET['id'];
 <div class="view_comment">
   <?php foreach ($all_comment as $a): ?>
   <div class="title_comment">
-  <p class="name_comment"> <?=$a['name']?> </p>
+  <p class="name_comment"> <?=$a['user']?> </p>
   <p class="time_comment"> <?=date("H:i", $a['comment_time'])?> </p>
   <p class="data_comment"> <?=date("d.m.Y", $a['comment_time'])?> </p>
   </div>
@@ -50,7 +50,7 @@ $_SESSION['id'] = $_GET['id'];
   <input type="text" name="name" class="form_name" required>
 
   <p> Ваш комментарий </p>
-  <textarea name="comment_text" class="form_comment"></textarea>
+  <textarea name="comment_text" class="form_comment" required></textarea>
   <div class="text-center">
   <button name="enter_comment" class="submit-button">Отправить</button>
   </div>
