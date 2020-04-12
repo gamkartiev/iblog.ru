@@ -8,12 +8,12 @@
     $link = db_connect();
 
 //------Выход из аккаунта------//
-    if(($_GET['do']) == 'logout')
-    {
-    	unset($_SESSION['admin']);
-    	session_destroy();
-      header("Location: index.php");
-    }
+  if(($_GET['do']) == 'logout')
+  {
+  	unset($_SESSION['admin']);
+  	session_destroy();
+    header("Location: index.php");
+  }
 //--------------//
 
 
@@ -43,6 +43,12 @@
     }
   elseif($authentication == 'registration') //если мы регистрируемся
     {
+      if(!empty($_SESSION['login'])) //если пользователь сохранен или уже зареган - то переходим на главную
+      {
+        header("Location: index.php");
+        exit;
+      };
+
       if(!empty($_POST))
       {
         $save_user = save_user($link, $_POST['login'], $_POST['password']);

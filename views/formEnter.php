@@ -16,7 +16,7 @@ if($_SESSION['login']) //Если в аккаунт уже вошел - пере
 <body>
 
 <section class="formEnter">
-	
+
 	<?php
 		echo $status_get_user; //Если неправильный логин-пароль - выдает ошибку, иначе пустая
 	 ?>

@@ -206,7 +206,7 @@ function views_counter($link, $id)
 function show_title($link)
 {
     // Запрос
-    $query = "SELECT id, title, views FROM `articles` ORDER BY views DESC LIMIT 10";
+    $query = "SELECT `id`, `title`, `views` FROM `articles` ORDER BY `views` DESC LIMIT 10";
     $result = mysqli_query($link, $query);
 
     if (!$result)
@@ -225,11 +225,20 @@ function show_title($link)
 }
 
 
+function show_last_comment($link)
+{
+  //
+  $query = "SELECT ";
+}
+
 //Регистрация нового пользователя
 function save_user($link, $login, $password)
 {
   $login = trim($login);
   $password = trim($password);
+
+  //get_secure_password($password); //шифруем наш пароль не заработало
+  $password = md5($password);
 
   if(get_user_login($link, $login)===false){
     return false;
@@ -244,11 +253,21 @@ function save_user($link, $login, $password)
   $qresult = mysqli_query($link, $query);
 
   if(!$qresult)
-    { die(mysqli_error($link)); }
+    die(mysqli_error($link));
+
+  $_SESSION['login'] = $login;
+  $_SESSION['password'] = $password;
 
   return true;
 }
 
+
+//шифрует наш пароль - не заработало - почему?
+function get_secure_password($password)
+{
+  $password = md5($password);
+  return $password;
+}
 
 
 //проверка на существование логина(для регистрации нового пользователя на сайт)
@@ -301,7 +320,10 @@ function get_user($link, $login, $password)
   }
   else
   {
-    //Если сушествует, то сверяем пароли
+    //Если сушествует, то шифруем пароль и
+    //get_secure_password($password);
+    $password = md5($password);
+    //сверяем пароли
     if($myrow['password']==$password)
     {
       //Если пароли совпадают, то запускаем пользователю сессию

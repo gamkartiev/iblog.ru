@@ -6,12 +6,9 @@
   require_once("models/articles.php");
 
   if(!isset($_GET['id']))
-  {
-    $id_article = $_SESSION['id'];
-  }
-  else{
-    $id_article = $_GET['id'];
-  }
+    { $id_article = $_SESSION['id']; }
+  else
+    { $id_article = $_GET['id']; };
 
   $link = db_connect();
   $article = article_get($link, $id_article);
@@ -25,6 +22,7 @@
     else
       {$user = $_SESSION['login'];}; //иначе, берем из сессии
    	$comment_text = $_POST['comment_text'];
+
 
    	new_comment($link, $id_article, $user, $comment_text);
    	header("Location: article.php");

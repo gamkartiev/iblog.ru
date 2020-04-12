@@ -3,7 +3,6 @@ session_start();
 // error_reporting(E_ALL);   //Это тело(или заголовок) ответа. Если включишь - не будет отправляться "добавить статья"
 header("Content-Type: text/html; charset=utf-8");
 ini_set('display_errors',1);
-    // require("auth.php");
     require_once("../database.php");
     require_once("../models/articles.php");
 
@@ -28,6 +27,12 @@ if(!$_SESSION['login'])
 {
 	header("Location: /index.php?authentication=enter");
 	exit;
+}
+
+if($_SESSION['status'] != 'admin')
+{
+  header("Location: /index.php");
+  exit;
 }
 //------------------//
 
@@ -60,9 +65,7 @@ if($action == "add"){
 }elseif($action == "edit")
 {//edit - редактировать статью
   if (!isset($_GET['id']))
-  {
-    header("Location: index.php");
-  };
+    { header("Location: index.php");}
 
   $id = (int)$_GET['id'];
   if (!empty($_POST) && $id > 0)

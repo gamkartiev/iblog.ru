@@ -22,5 +22,9 @@
 	</form>
 </section>
 
+<div class="layout_footer">
+	<p> Уже зарегистрированы? <a href="index.php?authentication=registration"> Войдите </a> </p>
+</div>
+
 </body>
 </html>
