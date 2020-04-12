@@ -24,7 +24,7 @@ if((!empty($_SESSION['login'])) && ($_SESSION['status']=='admin')): ?>
 
 if(!empty($_SESSION['login']) && ($_SESSION['status']!=='admin')):?>
      <section class="login">
-       <div class="login_name"> <?=$_SESSION['login']?> </div>
+       <div class="login_name"> <?=$_SESSION['login']?>  </div>
        <a class="link_top" href="index.php?do=logout"> Выход </a>
     </section>
 <?php endif; ?>

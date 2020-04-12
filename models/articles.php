@@ -251,7 +251,8 @@ function save_user($link, $login, $password)
 {
   $login = trim($login);
   $password = trim($password);
-
+  $password_for_session = $password; //записываем сюда пароль, чтобы вызвать его для добавлении в сессию
+  //иначе пароль шифруется два раза, не совпадает и не вызывается
   //get_secure_password($password); //шифруем наш пароль не заработало
   $password = md5($password);
 
@@ -259,7 +260,7 @@ function save_user($link, $login, $password)
     return false;
   }  //если это false, то echo - такой логин уже существует
 
-  $t = "INSERT INTO users(login, password, status) VALUES ('%s', '%s', 'user')";
+  $t = "INSERT INTO `users`(`login`, `password`, `status`) VALUES ('%s', '%s', 'user')";
 
   $query = sprintf($t,
   mysqli_real_escape_string($link, $login),
@@ -270,8 +271,9 @@ function save_user($link, $login, $password)
   if(!$qresult)
     die(mysqli_error($link));
 
-  $_SESSION['login'] = $login;
-  $_SESSION['password'] = $password;
+  get_user($link, $login, $password_for_session);
+  // $_SESSION['login'] = $login;
+  // $_SESSION['password'] = $password;
 
   return true;
 }
@@ -343,7 +345,7 @@ function get_user($link, $login, $password)
     {
       //Если пароли совпадают, то запускаем пользователю сессию
       $_SESSION['login'] = $myrow['login'];
-      $_SESSION['id'] = $myrow['id'];
+      $_SESSION['id_users'] = $myrow['id'];
       $_SESSION['status'] = $myrow['status'];
     }
     else
