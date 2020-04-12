@@ -27,6 +27,28 @@ a:link
 color: #3E7BAB;
 text-decoration: none;
 }
+/*-------Добавление статьи-------*/
+.add_article
+{
+	width: 480px;
+}
+
+.form_comment /*из файла style.css*/
+{
+	height: 130px;
+	width: 460px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	border: 2px solid black;
+   -webkit-border-radius: 5px; /*//закругление углов (Google Chrome)*/
+   -moz-border-radius: 5px;/* //закругление углов (FireFox)*/
+   	border-radius: 5px; /*//закругление углов (общее)*/
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+	font-size: 14px;
+	resize: none;
+}
+
 
 /*------- Вход в админку --------*/
 .formEnter

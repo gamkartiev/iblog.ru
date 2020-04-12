@@ -6,9 +6,12 @@
 </head>
 <body>
 
-	<!-- Ввести обязательность полей  -->
-
 <section class="formEnter">
+
+	<?php
+	echo $status_get_user; //если пользователь с таким логином уже существует - выведет это
+	?>
+
 	<p>Регистрация</p>
 	<a class="submit1" href="/index.php"> На главную </a>
 
@@ -18,12 +21,6 @@
 		<button name="button" type="submit"> Зарегистрироваться </button>
 	</form>
 </section>
-
-<!-- <div class="layout_footer">
-	<p>Ещё нет аккаунта? <a href="#"> Зарегистрируйтесь </a> </p>
-</div> -->
-
-
 
 </body>
 </html>

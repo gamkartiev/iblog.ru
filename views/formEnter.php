@@ -16,11 +16,14 @@ if($_SESSION['login']) //Если в аккаунт уже вошел - пере
 <body>
 
 <section class="formEnter">
+	
 	<?php
 		echo $status_get_user; //Если неправильный логин-пароль - выдает ошибку, иначе пустая
 	 ?>
+
 	<p>Вход</p>
 	<a class="submit1" href="/index.php"> На главную </a>
+
 	<form class="open_admin" method="post">
 		<input type="text" name="login" placeholder="Логин" required/><br />
 		<input type="password" name="password" placeholder="Пароль" required/><br />

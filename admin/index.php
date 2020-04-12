@@ -1,9 +1,9 @@
 <?php
 session_start();
-// error_reporting(E_ALL);
+// error_reporting(E_ALL);   //Это тело(или заголовок) ответа. Если включишь - не будет отправляться "добавить статья"
 header("Content-Type: text/html; charset=utf-8");
 ini_set('display_errors',1);
-    require("auth.php");
+    // require("auth.php");
     require_once("../database.php");
     require_once("../models/articles.php");
 
@@ -15,47 +15,73 @@ $article['content']='';
 $article['author']='';
 $article['image']='';
 
+//--------Выход из аккаунта и админики-------//
+if($_GET['do'] == 'logout')
+{
+	unset($_SESSION['login']);
+	session_destroy();
+  header("Location: /index.php");
+  exit;
+}
 
-//-------------обработчик изображения----------
-if(!empty($_FILES['upload']['tmp_name'])) {
-    require_once ("../imageproc.php");
-} else if (!empty($_POST['image'])) {
-    $image = $_POST['image'];
+if(!$_SESSION['login'])
+{
+	header("Location: /index.php?authentication=enter");
+	exit;
+}
+//------------------//
+
+
+//-------------обработчик изображения----------//
+if(!empty($_FILES['upload']['tmp_name']))
+  {require_once ("../imageproc.php");}
+elseif(!empty($_POST['image']))
+  { $image = $_POST['image'];}
+//----------/////////
+
+
+// --------------- логика админки -----------------
+//Проверяет, нажата ли какая-либо кнопка действий
+if(isset($_GET['action']))
+    { $action = $_GET['action']; }
+else{ $action ="";}
+
+//add - добавить статью
+if($action == "add"){
+  if(!empty($_POST['title'])){
+    if(empty($_POST['data']))
+    {
+      $_POST['data'] =  time();
     }
+    article_new ($link, $_POST['title'], $_POST['content'], $_POST['data'], $image);
+    header ("Location: index.php");
+  }
+  include("../views/article_admin.php");
+}elseif($action == "edit")
+{//edit - редактировать статью
+  if (!isset($_GET['id']))
+  {
+    header("Location: index.php");
+  };
 
-// --------------- логика -----------------
-    if (isset($_GET['action']))                 //Проверяет, нажата ли какая-либо кнопка действий
-        $action = $_GET['action'];
-    else
-        $action ="";
-
-    if ($action == "add"){                     // Если нажато "добавить статью", то вызываем функцию "новая статья" (из подключенного файла models.php)
-        if (!empty($_POST)){
-            article_new($link, $_POST['title'], $_POST['content'], $_POST['data'], $image);
-            header("Location: index.php");
-        }
-        include("../views/article_admin.php");
-    }
-    else if ($action == "edit"){                //Если нажато "редактировать", то вызываем функцию "редактировать стьатью""
-        if (!isset($_GET['id']))
-            header("Location: index.php");
-        $id = (int)$_GET['id'];
-
-        if (!empty($_POST) && $id > 0){
-            article_edit($link, $id, $_POST['title'], $_POST['content'], $_POST['data'], $image);
-            header("Location: index.php");
-        }
-
-        $article = article_get($link, $id);
-        include("../views/article_admin.php");
-    } else if ($action == "delete"){            //Если нажато "удалить", то вызываем функцию "удаления"
-        $id = $_GET['id'];
-        article_delete($link, $id);
-        header("Location: index.php");
-    }
-    else{
-        $articles = article_all_admin($link);             // Иначе вывести все статьи списком(вызов соответствующей функции)
-        include("../views/articles_admin.php");
-    }
+  $id = (int)$_GET['id'];
+  if (!empty($_POST) && $id > 0)
+  {
+    article_edit($link, $id, $_POST['title'], $_POST['content'], $_POST['data'], $image);
+    header("Location: index.php");
+  }
+  $article = article_get($link, $id);
+  include("../views/article_admin.php");
+}
+elseif ($action == "delete") //удаляем статью
+{
+  $id = $_GET['id'];
+  article_delete($link, $id);
+  header("Location: index.php");
+}
+else{
+  $articles = article_all_admin($link);
+  include("../views/articles_admin.php");
+}
 
 ?>

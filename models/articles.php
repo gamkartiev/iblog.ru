@@ -106,7 +106,7 @@ function article_new($link, $title, $content, $data, $image)
     }
 
     // Запрос
-    $t = "INSERT INTO articles (title, content, data, image, views) VALUES ('%s', '%s', '%s', '%s', '%s')";
+    $t = "INSERT INTO `articles` (`title`, `content`, `data`, `image`, `views`) VALUES ('%s', '%s', '%s', '%s', '%s')";
 
     $query=sprintf($t,
         mysqli_real_escape_string($link, $title),
@@ -231,7 +231,11 @@ function save_user($link, $login, $password)
   $login = trim($login);
   $password = trim($password);
 
-  $t = "INSERT INTO users(login, password) VALUES ('%s', '%s')";
+  if(get_user_login($link, $login)===false){
+    return false;
+  }  //если это false, то echo - такой логин уже существует
+
+  $t = "INSERT INTO users(login, password, status) VALUES ('%s', '%s', 'user')";
 
   $query = sprintf($t,
   mysqli_real_escape_string($link, $login),
@@ -244,6 +248,30 @@ function save_user($link, $login, $password)
 
   return true;
 }
+
+
+
+//проверка на существование логина(для регистрации нового пользователя на сайт)
+function get_user_login($link, $login)
+{
+  $login = stripslashes($login);
+  $login = htmlspecialchars($login);
+  $login = trim($login);
+
+  $query = "SELECT `login` FROM `users` WHERE login='$login'";
+  $result = mysqli_query($link, $query);
+
+  if(!$result)
+    die(mysqli_error($link));
+
+  $myrow = mysqli_fetch_array($result);
+
+  if (empty($myrow))  //Если есть данные, значит возвращаем true = такой логин уже существует
+    {  return true; }
+  else          //если данных нет, то возращаем false - такого логина не существует
+    {  return false;  };
+}
+
 
 
 //Получение логина и пароля для пользователей
@@ -279,6 +307,7 @@ function get_user($link, $login, $password)
       //Если пароли совпадают, то запускаем пользователю сессию
       $_SESSION['login'] = $myrow['login'];
       $_SESSION['id'] = $myrow['id'];
+      $_SESSION['status'] = $myrow['status'];
     }
     else
     {

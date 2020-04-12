@@ -14,11 +14,18 @@ if(empty($_SESSION['login'])) :?>
  <?php
  endif;
 
-if(!empty($_SESSION['login'])): ?>
+if((!empty($_SESSION['login'])) && ($_SESSION['status']=='admin')): ?>
     <section class="login">
       <div class="login_name"> <?=$_SESSION['login']?> </div>
+      <a class="link_top" href="/admin/index.php"> Панель администратора </a>
       <a class="link_top" href="index.php?do=logout"> Выход </a>
     </section>
-<?php endif; ?>
+<?php endif;
 
+if(!empty($_SESSION['login']) && ($_SESSION['status']!=='admin')):?>
+     <section class="login">
+       <div class="login_name"> <?=$_SESSION['login']?> </div>
+       <a class="link_top" href="index.php?do=logout"> Выход </a>
+    </section>
+<?php endif; ?>
 </nav>

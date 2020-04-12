@@ -45,7 +45,15 @@
     {
       if(!empty($_POST))
       {
-        save_user($link, $_POST['login'], $_POST['password']);
+        $save_user = save_user($link, $_POST['login'], $_POST['password']);
+
+        //если пользователь с таким логином существует - то выкинет это и форму рег-ии
+        if($save_user === false)
+        {
+          $status_get_user = "Пользователь с таким логином уже существует";
+          include("views/formRegistration.php");
+          exit;
+        }
         header("Location: index.php");
       }
      include("views/formRegistration.php");
