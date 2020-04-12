@@ -1,5 +1,5 @@
 <aside class="interesting">
-<div class="block_name"> Популярное </div>
+<div class="block_name"> <b> Популярное </b></div>
 <div class="block_body">
   <ul class="menu_aside">
     <?php foreach($show_title as $value): ?>
@@ -11,11 +11,19 @@
 </aside>
 
 <aside class="last_comments">
-<div class="block_name"> Последние комментарии </div>
+<div class="block_name"> <b> Последние комментарии </b></div>
 <div class="block_body">
-  <?php foreach($show_title as $value): ?>
-  <li class="list_aside"><a class="link_aside" href="article.php?id=<?=$value['id']?>"><?=$value['title']?></a></li>
-  <?php endforeach ?>
+  <ul class="menu_aside">
+    <?php
+    foreach($show_last_comment as $a): ?>
+    <li class="list_aside"><a class="link_aside" href="article.php?id=<?=$a['id_article']?>">
+      <b><?=$a['user']?></b>
+      <?=date("H:i", $a['comment_time'])?>
+      <?=date("d.m", $a['comment_time'])?> <br />
+      <?=article_intro($a['comment_text'], 18)?>
+    </a></li>
+    <?php endforeach ?>
+  </ul>
 </div>
 </aside>
 

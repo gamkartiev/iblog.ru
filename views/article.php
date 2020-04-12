@@ -35,7 +35,7 @@ $_SESSION['id'] = $_GET['id'];
 <div class="view_comment">
   <?php foreach ($all_comment as $a): ?>
   <div class="title_comment">
-  <p class="name_comment"> <?=$a['user']?> </p>
+  <p class="name_comment"> <b> <?=$a['user']?> </b></p>
   <p class="time_comment"> <?=date("H:i", $a['comment_time'])?> </p>
   <p class="data_comment"> <?=date("d.m.Y", $a['comment_time'])?> </p>
   </div>

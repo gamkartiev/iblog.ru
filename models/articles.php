@@ -181,7 +181,7 @@ function article_delete($link, $id)
 
 
 //обрезка вывода текста статьи на главной странице
-function article_intro($text, $len = 500)
+function article_intro($text, $len)
 {
     return mb_substr($text, 0, $len);
 }
@@ -202,21 +202,21 @@ function views_counter($link, $id)
 
 
 
-//Вывод заголовков статей по популярности в блоке Интересное. Проблема - Не ограничен вывод статей
+//Вывод заголовков статей по популярности в блоке Интересное
 function show_title($link)
 {
     // Запрос
-    $query = "SELECT `id`, `title`, `views` FROM `articles` ORDER BY `views` DESC LIMIT 10";
+    $query = "SELECT `id`, `title`, `views` FROM `articles` ORDER BY `views` DESC";
     $result = mysqli_query($link, $query);
 
     if (!$result)
         die(mysqli_error($link));
 
     // Извлечение из БД
-    $n = mysqli_num_rows($result);
+    // $n = mysqli_num_rows($result);
     $show_title = array();
 
-    for ($i = 0; $i < $n; $i++){
+    for ($i = 0; $i < 11; $i++){
         $row = mysqli_fetch_assoc($result);
         $show_title[] = $row;
     }
@@ -224,11 +224,26 @@ function show_title($link)
     return $show_title;
 }
 
-
+//Вывод последних 7 комментарий
 function show_last_comment($link)
 {
   //
-  $query = "SELECT ";
+  $query = "SELECT * FROM `comment` ORDER BY `comment_time` DESC";
+  $result = mysqli_query($link, $query);
+
+  if(!$result)
+    die(mysqli_error($link));
+
+    //
+    // $n = mysqli_num_rows($result);
+    $show_last_comment = array();
+
+    for($i = 0; $i < 7; $i++)
+    {
+      $row = mysqli_fetch_assoc($result);
+      $show_last_comment[] = $row;
+    }
+    return $show_last_comment;
 }
 
 //Регистрация нового пользователя

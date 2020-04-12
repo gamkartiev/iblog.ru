@@ -77,7 +77,7 @@
 
   $articles = article_all($link, $page);
   $show_title = show_title($link); //Вывод заголовков статей по популярности в блоке Интересное
-
+  $show_last_comment = show_last_comment($link); //вывод последних комментов в aside
 
 //---------Навигация по сайту--------//
     if(isset($_GET['menu']))

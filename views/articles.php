@@ -31,7 +31,7 @@
       <div class="articles--cont">
         <h3><a href="article.php?id=<?=$a['id']?>"><?=$a['title']?></a></h3>
         <em>Опубликовоно: <?=$a['data']?></em> <br /><br />
-        <p><?=article_intro($a['content'])?></p>
+        <p><?=article_intro($a['content'], 500)?></p> <!--500 - ограничение слов для вывода -->
         <p><a href="article.php?id=<?=$a['id']?>">Читать далее...</a></p>
       </div>
        <!-- Поставить тут значок колличество просмотров статьи-->
