@@ -227,11 +227,6 @@ section .section_article
 
 
 /*------ Комментарии к статье ------*/
-.view_comment
-{
-	margin: 0 110px;
-}
-
 .title_comment
 {
 	width: 250px;
@@ -279,7 +274,7 @@ section .section_article
 /*------Форма-------*/
 .form
 {
-	margin-left: 110px;
+	/* margin-left: 110px; */
 	margin-bottom: 40px;
 	width: 460px;
 }
@@ -288,7 +283,7 @@ h2
 {
 	font-size: 24px;
 	font-weight: 400;
-	margin: 25px 0 25px 110px;
+	margin: 25px 0 25px 0;
 }
 
 form p

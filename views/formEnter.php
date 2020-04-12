@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['login'])
+if($_SESSION['login']) //Если в аккаунт уже вошел - переходим на основной сайт
 {
 	header("Location: index.php");
 	exit;
@@ -17,18 +17,13 @@ if($_SESSION['login'])
 
 <section class="formEnter">
 	<?php
-	if(isset($_POST['button']))
-	{
-		$login = $_POST['login'];
-		$password = $_POST['password'];
-		get_user($link, $login, $password);
-	}
+		echo $status_get_user; //Если неправильный логин-пароль - выдает ошибку, иначе пустая
 	 ?>
 	<p>Вход</p>
 	<a class="submit1" href="/index.php"> На главную </a>
 	<form class="open_admin" method="post">
-		<input type="text" name="login" placeholder="Логин" /><br />
-		<input type="password" name="password" placeholder="Пароль" /><br />
+		<input type="text" name="login" placeholder="Логин" required/><br />
+		<input type="password" name="password" placeholder="Пароль" required/><br />
 		<button name="button" type="submit"> Войти </button>
 	</form>
 </section>

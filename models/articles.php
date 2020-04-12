@@ -268,8 +268,8 @@ function get_user($link, $login, $password)
   if(empty($myrow['password']))
   {
     //Если пользователя с таким логином не существует
-    echo "Извините, введенный Вами логин или пароль неверный";
-    return;
+    // echo "Извините, введенный Вами логин или пароль неверный";
+    return false;
   }
   else
   {
@@ -282,8 +282,8 @@ function get_user($link, $login, $password)
     }
     else
     {
-      echo "Извините, введенный Вами логин или пароль неверный";
-      return;
+      // echo "Извините, введенный Вами логин или пароль неверный";
+      return false;
     }
   }
 

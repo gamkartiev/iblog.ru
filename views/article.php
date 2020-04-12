@@ -1,7 +1,7 @@
-<!-- <?php
+<?php
 // session_start();
-// $_SESSION['id'] = $_GET['id'];
-?> -->
+$_SESSION['id'] = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -47,7 +47,7 @@
   <h2>Оставить комментарий</h2>
 <form method="post" action="article.php" class="form">
   <p> Ваше имя </p>
-  <input type="text" name="name" class="form_name" required>
+  <input type="text" name="login" class="form_name" value="<?=$_SESSION['login'] ?>" required>
 
   <p> Ваш комментарий </p>
   <textarea name="comment_text" class="form_comment" required></textarea>

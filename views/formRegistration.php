@@ -3,7 +3,6 @@
 <head>
 	<title> Вход в систему администрирования</title>
 	<link rel="stylesheet" type="text/css" href="/views/css/style_form.css">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 </head>
 <body>
 
@@ -14,8 +13,8 @@
 	<a class="submit1" href="/index.php"> На главную </a>
 
 	<form class="open_admin" method="post" action="/index.php?authentication=<?=$_GET['authentication']?>">
-		<input type="text" name="login" placeholder="Логин" /><br />
-		<input type="password" name="password" placeholder="Пароль" /><br />
+		<input type="text" name="login" placeholder="Логин" required/><br />
+		<input type="password" name="password" placeholder="Пароль" required/><br />
 		<button name="button" type="submit"> Зарегистрироваться </button>
 	</form>
 </section>
