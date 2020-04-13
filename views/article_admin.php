@@ -16,9 +16,9 @@
 <h3>
 <?php
   // Вывод слова добавление статьи или редактирования в зависимости от спецификатора $action
-  if ($action == "add"){
+  if ($action == "add") {
      echo "Добавить статью";
-   }else {
+   } else {
      echo "Редактировать статью";
    }
 ?>
@@ -44,9 +44,9 @@
       <input type="hidden" name="image" value="<?=$article['image']?>">
   </label>
   <?php
-  if($article['image'] == ""){
+  if ($article['image'] == "") {
     echo "Файл не был выбран";
-  }else{
+  } else {
     echo '<img class="article_img" src="../files/'.$article['image'].'" />';
   };
   ?>

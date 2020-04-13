@@ -33,7 +33,7 @@ $_SESSION['id'] = $_GET['id'];
 
 <section>
 <div class="view_comment">
-  <?php foreach ($all_comment as $a): ?>
+  <?php foreach ($allComment as $a): ?>
   <div class="title_comment">
   <p class="name_comment"> <b> <?=$a['user']?> </b></p>
   <p class="time_comment"> <?=date("H:i", $a['comment_time'])?> </p>
@@ -50,9 +50,9 @@ $_SESSION['id'] = $_GET['id'];
   <input type="text" name="login" class="form_name" value="<?=$_SESSION['login'] ?>" required>
 
   <p> Ваш комментарий </p>
-  <textarea name="comment_text" class="form_comment" required></textarea>
+  <textarea name="commentText" class="form_comment" required></textarea>
   <div class="text-center">
-  <button name="enter_comment" class="submit-button">Отправить</button>
+  <button name="enterComment" class="submit-button">Отправить</button>
   </div>
 </form>
 </section>
